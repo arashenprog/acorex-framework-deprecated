@@ -126,13 +126,6 @@
       }
     }
   }
-  // &.form-item {
-  //   label {
-  //     display: block;
-  //     font-size: 1rem;
-  //     padding: 0.5em 0;
-  //   }
-  // }
   &.form-group-label {
     display: block;
     font-size: inherit !important;
@@ -142,7 +135,6 @@
     display: flex;
     flex-direction: column;
   }
-
   &.form-item {
     border: 1px solid var(--ax-border-color);
     display: flex;

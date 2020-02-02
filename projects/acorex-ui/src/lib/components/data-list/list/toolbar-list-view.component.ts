@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { AXToolbarItem } from '../../../layout/toolbar/toolbar-item';
+import { AXToolbarItem } from '../../toolbar';
 
 export type AXListViewDirection = "vertical" | "vertical-wrap" | "horizontal-wrap" | "horizontal";
 
@@ -27,16 +27,16 @@ export class AXToolbarListViewComponent {
     constructor() { }
 
     @Input('vertical')
-    vertical:boolean = true;
+    vertical: boolean = true;
 
     @Input('vertical-wrap')
-    verticalWrap:boolean = true;
+    verticalWrap: boolean = true;
 
     @Input('horizontal-wrap')
-    horizontalWrap:boolean = true;
+    horizontalWrap: boolean = true;
 
     @Input('horizontal')
-    horizontal:boolean = true;
+    horizontal: boolean = true;
 
 
     @Output()

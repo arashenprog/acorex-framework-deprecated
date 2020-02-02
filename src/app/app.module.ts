@@ -3,8 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AXTextBoxModule, AXButtonModule, AXFormGroupModule, AXLabelModule, AXDropdownModule } from 'acorex-ui';
-import { AXSelectBoxModule } from 'projects/acorex-ui/src/public-api';
+import {
+  AXTextBoxModule,
+  AXButtonModule,
+  AXFormGroupModule,
+  AXLabelModule,
+  AXDropdownModule,
+  AXSelectBoxModule,
+  AXDataSourceModule
+}
+  from 'acorex-ui';
 
 @NgModule({
   declarations: [
@@ -18,7 +26,8 @@ import { AXSelectBoxModule } from 'projects/acorex-ui/src/public-api';
     AXFormGroupModule,
     AXLabelModule,
     AXDropdownModule,
-    AXSelectBoxModule
+    AXSelectBoxModule,
+    AXDataSourceModule
   ],
   providers: [],
   bootstrap: [AppComponent]

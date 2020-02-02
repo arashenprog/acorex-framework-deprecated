@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, Input, EventEmitter, Output, ViewChild } from '@angular/core';
-import { AXDataListComponent } from '../data-list/api';
 import { AXDropdownComponent } from '../dropdown';
+import { AXDataListComponent } from '../data-list';
 
 @Component({
     selector: 'ax-select-box',

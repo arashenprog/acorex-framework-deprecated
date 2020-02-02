@@ -17,7 +17,7 @@ export class AXDataSourceComponent {
 
     ngOnInit(): void {
         if (this.read) {
-            this.read.onDataReceived.subscribe(c => {
+            this.read.dataReceived.subscribe(c => {
                 this.onDataReceived.emit(c);
             })
         }

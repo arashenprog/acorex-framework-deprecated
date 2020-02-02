@@ -127,7 +127,7 @@ export class AXPopoverComponent {
       top = window.innerHeight - pop.offsetHeight - 10;
     }
     pop.style.top = top + "px";
-    debugger;
+    ;
     if (left < 0) {
       left = 0;
     }

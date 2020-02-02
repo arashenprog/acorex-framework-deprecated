@@ -11,7 +11,7 @@ import { AXDataSourceReadParams, AXDataSourceRead } from './read-param';
 })
 export class AXDataSourceCallbackRead extends AXDataSourceRead {
 
-    onDataReceived: EventEmitter<any> = new EventEmitter<any>();
+    dataReceived: EventEmitter<any> = new EventEmitter<any>();
 
     @Input()
     provideData: (params: AXDataSourceReadParams) => Promise<any>;
@@ -23,7 +23,7 @@ export class AXDataSourceCallbackRead extends AXDataSourceRead {
     fetch(params: AXDataSourceReadParams) {
         if (this.provideData) {
             this.provideData(params).then(data => {
-                this.onDataReceived.emit(data);
+                this.dataReceived.emit(data);
             });
         }
     }

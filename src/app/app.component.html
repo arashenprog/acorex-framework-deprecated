@@ -15,7 +15,12 @@
 <br>
 <br>
 <br>
-<ax-select-box size="md">
+<ax-select-box size="md" textField="title" valueField="id" groupField="category" mode="multiple"
+  (selectedItemsChange)="handleSelectChange($event)">
+  <ax-data-source>
+    <ax-callback-read [provideData]="handleDataReceived">
+    </ax-callback-read>
+  </ax-data-source>
 </ax-select-box>
 <br>
 <br>

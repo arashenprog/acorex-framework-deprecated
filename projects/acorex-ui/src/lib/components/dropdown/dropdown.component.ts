@@ -26,4 +26,8 @@ export class AXDropdownComponent extends AXBaseSizableComponent {
     handleArrowClick(e: MouseEvent) {
         this.popSelectBox.toggle();
     }
+
+    close() {
+        this.popSelectBox.close();
+    }
 }

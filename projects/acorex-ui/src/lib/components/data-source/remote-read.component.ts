@@ -30,7 +30,7 @@ export class AXDataSourceRemoteRead extends AXDataSourceRead {
 
 
 
-    onDataReceived: EventEmitter<any> = new EventEmitter<any>();
+    dataReceived: EventEmitter<any> = new EventEmitter<any>();
 
     fetch(params: AXDataSourceReadParams = {}) {
         if (!this.params) this.params = {};
@@ -43,7 +43,7 @@ export class AXDataSourceRemoteRead extends AXDataSourceRead {
             params: this.params,
             headers: this.headers
         }).result(c => {
-            this.onDataReceived.emit(c);
+            this.dataReceived.emit(c);
         })
     }
 

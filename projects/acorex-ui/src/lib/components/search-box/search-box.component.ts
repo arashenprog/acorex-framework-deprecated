@@ -12,7 +12,7 @@ export class AXSearchBoxComponent {
     private searchChangeObserver: any;
 
     @Output()
-    onTextChanged: EventEmitter<string> = new EventEmitter<string>();
+    valueChanged: EventEmitter<string> = new EventEmitter<string>();
 
     private _text: string;
     @Input()
@@ -22,7 +22,7 @@ export class AXSearchBoxComponent {
     public set text(v: string) {
         if (v !== this._text) {
             this._text = v;
-            this.onTextChanged.emit(v);
+            this.valueChanged.emit(v);
         }
     }
 

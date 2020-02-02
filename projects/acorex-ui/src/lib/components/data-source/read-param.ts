@@ -34,5 +34,5 @@ export interface AXDataSourceReadParams {
 
 export abstract class AXDataSourceRead {
     abstract fetch(params: AXDataSourceReadParams): void;
-    abstract onDataReceived: EventEmitter<any>;
+    abstract dataReceived: EventEmitter<any>;
 }
