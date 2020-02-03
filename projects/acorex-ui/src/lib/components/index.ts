@@ -9,3 +9,4 @@ export * from './data-source';
 export * from './data-list';
 export * from './menu';
 export * from './toolbar';
+export * from './checkbox';

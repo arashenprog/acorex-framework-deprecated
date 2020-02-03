@@ -1,5 +1,5 @@
 import { AXHtmlUtil } from '../utils/utils.api';
-import { Input, Output, EventEmitter } from '@angular/core';
+import { Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 
 export abstract class AXBaseComponent {
     uid: string = AXHtmlUtil.getUID();
@@ -9,7 +9,7 @@ export abstract class AXBaseComponent {
 
 export abstract class AXBaseSizableComponent extends AXBaseComponent {
     @Input()
-    size: "xs" | "sm" | "md" | "lg" | "xl";
+    size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
 export abstract class AXBaseClickableComponent extends AXBaseSizableComponent {
@@ -20,3 +20,28 @@ export abstract class AXBaseClickableComponent extends AXBaseSizableComponent {
 export abstract class AXBaseButtonComponent extends AXBaseClickableComponent {
 
 }
+export abstract class AXCheckedBaseComponent extends AXBaseComponent {
+    @Input() label: string = '';
+    constructor(protected cdr: ChangeDetectorRef) {
+      super();
+    }
+    // Value
+    @Output()
+    valueChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+    //
+    protected _value: boolean = false;
+    //
+    set value(val: boolean) {
+      if (this._value !== val) {
+        this._value = val;
+        this.valueChange.emit(val);
+        this.cdr.markForCheck();
+        this.cdr.detectChanges();
+      }
+    }
+    //
+    @Input()
+    get value(): boolean {
+      return this._value;
+    }
+  }

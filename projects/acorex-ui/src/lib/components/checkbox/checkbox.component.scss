@@ -1,0 +1,64 @@
+//@import "../../../styles/mixins";
+
+.rtl {
+  .checkbox-container {
+    .checkmark {
+      right: 0 !important;
+      left: inherit !important;
+    }
+  }
+}
+// Check Box Custom Style
+.checkbox-container {
+  display: inline-block;
+  position: relative;
+  padding-inline-start: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0 var(--sp-md-size) 0 0;
+  .checkmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: var(--white-color);
+    border: 1px solid;
+    border-color: var(--border-color);
+  }
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: var(--border-color);
+}
+.checkbox-container input:checked ~ .checkmark {
+  background-color: var(--white-color);
+  border-color: var(--primary-color);
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+.checkbox-container .checkmark:after {
+  left: 4px;
+  top: 0;
+  width: 5px;
+  height: 10px;
+  border: solid var(--primary-color);
+  border-width: 0 1px 1px 0;
+  transform: rotate(45deg);
+}

@@ -14,7 +14,8 @@ import {
   AXLabelModule,
   AXDropdownModule,
   AXSelectBoxModule,
-  AXDataSourceModule
+  AXDataSourceModule,
+  AXCheckBoxModule
 }
   from 'acorex-ui';
 
@@ -32,7 +33,8 @@ import {
     AXLabelModule,
     AXDropdownModule,
     AXSelectBoxModule,
-    AXDataSourceModule
+    AXDataSourceModule,
+    AXCheckBoxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
