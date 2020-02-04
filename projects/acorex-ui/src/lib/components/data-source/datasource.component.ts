@@ -1,4 +1,4 @@
-import { Component, ContentChild, EventEmitter } from "@angular/core";
+import { Component, ContentChild, EventEmitter, Input } from "@angular/core";
 import { AXDataSourceReadParams, AXDataSourceRead } from './read-param';
 
 
@@ -9,24 +9,18 @@ import { AXDataSourceReadParams, AXDataSourceRead } from './read-param';
 })
 export class AXDataSourceComponent {
 
-    @ContentChild(AXDataSourceRead, { static: true })
-    read: AXDataSourceRead;
-
     onDataReceived: EventEmitter<any> = new EventEmitter<any>();
     onFetchStart: EventEmitter<void> = new EventEmitter<void>();
 
-    ngOnInit(): void {
-        if (this.read) {
-            this.read.dataReceived.subscribe(c => {
-                this.onDataReceived.emit(c);
-            })
-        }
-    }
+    @Input()
+    provideData: (params: AXDataSourceReadParams) => Promise<any>;
 
-    fetch(params: AXDataSourceReadParams = {}) {
+    fetch(params: AXDataSourceReadParams) {
         this.onFetchStart.emit();
-        if (this.read) {
-            this.read.fetch(params);
+        if (this.provideData) {
+            this.provideData(params).then(data => {
+                this.onDataReceived.emit(data);
+            });
         }
     }
 }

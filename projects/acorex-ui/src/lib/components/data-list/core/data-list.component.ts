@@ -1,9 +1,9 @@
 import { ContentChild, Input, Directive } from "@angular/core";
 import { AXDataSourceComponent, AXDataSourceReadParams } from '../../data-source';
-import { AXBaseSizableComponent } from '../../../core';
+import {  AXBaseComponent } from '../../../core';
 
 @Directive()
-export abstract class AXDataListComponent extends AXBaseSizableComponent {
+export abstract class AXDataListComponent extends AXBaseComponent {
 
   @Input()
   items: any[] = [];

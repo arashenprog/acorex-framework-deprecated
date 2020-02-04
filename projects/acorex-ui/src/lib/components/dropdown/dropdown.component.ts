@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, Input } from '@angular/core';
-import { AXBaseSizableComponent } from '../../core';
+import { AXElementSize, AXBaseDropdownComponent } from '../../core';
 import { AXPopoverComponent } from '../popover';
 
 @Component({
@@ -9,17 +9,15 @@ import { AXPopoverComponent } from '../popover';
     changeDetection: ChangeDetectionStrategy.OnPush,
     host: { style: 'display:flex;align-items:center;flex:1' }
 })
-export class AXDropdownComponent extends AXBaseSizableComponent {
-
+export class AXDropdownComponent extends AXBaseDropdownComponent  {
+    
+    
     @ViewChild(AXPopoverComponent)
     popSelectBox: AXPopoverComponent;
 
     constructor() {
         super();
     }
-
-    @Input()
-    fitParent: boolean = true;
 
     ngOnInit(): void { }
 
@@ -29,5 +27,9 @@ export class AXDropdownComponent extends AXBaseSizableComponent {
 
     close() {
         this.popSelectBox.close();
+    }
+
+    open() {
+        this.popSelectBox.open();
     }
 }

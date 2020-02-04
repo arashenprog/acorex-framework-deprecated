@@ -1,6 +1,9 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, Input, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, Input, EventEmitter, Output, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { AXDropdownComponent } from '../dropdown';
 import { AXDataListComponent } from '../data-list';
+import { AXBaseSizableComponent, AXElementSize, AXBaseInputComponent } from '../../core';
+import { AXTextBoxComponent } from '../textbox';
+import { runInThisContext } from 'vm';
 
 @Component({
     selector: 'ax-select-box',
@@ -8,14 +11,31 @@ import { AXDataListComponent } from '../data-list';
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AXSelectBoxComponent extends AXDataListComponent {
-    constructor() {
+export class AXSelectBoxComponent extends AXDataListComponent implements AXBaseSizableComponent, AXBaseInputComponent {
+
+    @ViewChild(AXTextBoxComponent)
+    textbox: AXTextBoxComponent;
+
+
+
+    @Input()
+    readOnly: Boolean;
+
+    @Input()
+    disabled: boolean;
+
+    @Input()
+    size: AXElementSize;
+
+    text: string = "";
+
+    constructor(private cdr: ChangeDetectorRef) {
         super();
     }
+
     @ViewChild("d", { static: true }) dropdown: AXDropdownComponent;
 
     @Input() allowSearch: boolean = false;
-    @Input() label: string;
     @Input() textField: string = "text";
     @Input() valueField: string = "value";
     @Input() mode: "single" | "multiple" = "single";
@@ -35,7 +55,6 @@ export class AXSelectBoxComponent extends AXDataListComponent {
             this.searchTextChange.emit(v);
         }
     }
-    text: string = "";
 
     // #endregion 
 
@@ -53,7 +72,6 @@ export class AXSelectBoxComponent extends AXDataListComponent {
         if (v) {
             this.items.forEach(c => (c.selected = false));
             v.forEach(c => (c.selected = true));
-            this.text = v.map(c => c[this.textField]).join(", ");
         }
         this.selectedItemsChange.emit(v);
     }
@@ -69,7 +87,6 @@ export class AXSelectBoxComponent extends AXDataListComponent {
             return this._selectedItems.map(c => c[this.valueField]) || [];
     }
     public set selectedValues(v: any[] | any) {
-        ;
         let old = this.selectedValues;
         if (JSON.stringify(old) != JSON.stringify(v)) {
             if (this.mode == "single") {
@@ -114,5 +131,22 @@ export class AXSelectBoxComponent extends AXDataListComponent {
         super.fetch({
             searchText: text
         });
+    }
+
+    handleKeyEvent(e: KeyboardEvent) {
+        if ((!this.text || this.text.length == 0) && e.key == "Backspace") {
+            if (Array.isArray(this.selectedItems)) {
+                this.selectedItems.pop();
+                this.selectedItems=this.selectedItems;
+            }
+            else {
+                this.selectedItems = null;
+            }
+            this.cdr.markForCheck();
+        }
+    }
+
+    focus(): void {
+        this.textbox.focus();
     }
 }

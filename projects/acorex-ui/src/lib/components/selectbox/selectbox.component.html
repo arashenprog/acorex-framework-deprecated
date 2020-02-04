@@ -4,17 +4,14 @@
             <span>
                 {{item[textField]}}
             </span>
-            <span>
+            <span (click)="handleItemClick(item)">
                 <i class="fas fa-times-circle close"></i>
             </span>
         </div>
-        <ax-text-box></ax-text-box>
+        <ax-text-box [readOnly]="readOnly" [(value)]="text" (onkey)="handleKeyEvent($event)"></ax-text-box>
     </ng-container>
     <ng-container panel>
-        <div class="ax list-container">
-            <div *ngIf="allowSearch" class="search">
-                <ax-search-box [(text)]="searchText" (valueChanged)="handleSearchChanged($event)"></ax-search-box>
-            </div>
+        <div class="ax list-container">           
             <div style="max-height: 300px;overflow-y: auto;">
                 <ng-container *ngIf="items && items.length; then thenTemplate; else elseTemplate"></ng-container>
                 <ng-template #thenTemplate>

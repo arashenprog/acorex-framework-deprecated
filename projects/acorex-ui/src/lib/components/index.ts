@@ -1,6 +1,7 @@
 export * from './popover';
 export * from './form-group';
 export * from './textbox';
+export * from './searchbox';
 export * from './button';
 export * from './label';
 export * from './dropdown';

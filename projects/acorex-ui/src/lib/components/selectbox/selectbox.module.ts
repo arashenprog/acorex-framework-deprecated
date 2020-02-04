@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { AXSelectBoxComponent } from './selectbox.component';
 import { AXDropdownModule } from '../dropdown';
 import { AXTextBoxModule } from '../textbox';
-import { AXSearchBoxModule } from '../search-box';
 
 const COMPONENT = [AXSelectBoxComponent];
-const MODULES = [CommonModule, AXDropdownModule, AXTextBoxModule, AXSearchBoxModule];
+const MODULES = [CommonModule, AXDropdownModule, AXTextBoxModule];
 
 @NgModule({
     declarations: [...COMPONENT],

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AXSearchBoxComponent } from './search-box.component';
+import { AXSearchBoxComponent } from './searchbox.component';
 import { AXTextBoxModule } from '../textbox';
 import { AXButtonModule } from '../button';
 

@@ -2,14 +2,12 @@
 <ax-form-group size="md">
   <ax-label>Name</ax-label>
   <ax-button icon="fas fa-check" start>Start</ax-button>
-  <ax-text-box></ax-text-box>
-  <ax-button icon="fas fa-check">End</ax-button>
+  <ax-text-box [disabled]="true"></ax-text-box>
+  <ax-button icon="fas fa-check" [disabled]="true">End</ax-button>
 </ax-form-group>
-
 <br>
 <br>
 <br>
-
 <ax-drop-down size="md">
 </ax-drop-down>
 <br>
@@ -17,14 +15,12 @@
 <br>
 <ax-select-box size="md" textField="title" valueField="id" groupField="category" mode="multiple"
   (selectedItemsChange)="handleSelectChange($event)">
-  <ax-data-source>
-    <ax-callback-read [provideData]="handleDataReceived">
-    </ax-callback-read>
+  <ax-data-source [provideData]="handleDataReceived">
   </ax-data-source>
 </ax-select-box>
 <br>
 <br>
-<ax-text-box></ax-text-box>
+<ax-search-box></ax-search-box>
 <ax-form-group size="md">
   <ax-label>Name</ax-label>
   <ax-drop-down>
@@ -32,5 +28,4 @@
   </ax-drop-down>
   <ax-button icon="fas fa-plus"></ax-button>
 </ax-form-group>
-
 <ax-check-box></ax-check-box>

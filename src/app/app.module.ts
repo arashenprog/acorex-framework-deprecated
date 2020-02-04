@@ -15,7 +15,8 @@ import {
   AXDropdownModule,
   AXSelectBoxModule,
   AXDataSourceModule,
-  AXCheckBoxModule
+  AXCheckBoxModule,
+  AXSearchBoxModule
 }
   from 'acorex-ui';
 
@@ -34,7 +35,8 @@ import {
     AXDropdownModule,
     AXSelectBoxModule,
     AXDataSourceModule,
-    AXCheckBoxModule
+    AXCheckBoxModule,
+    AXSearchBoxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
