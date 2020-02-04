@@ -13,6 +13,10 @@
       "ax",
       "kebab-case"
     ],
-    "no-inferrable-types": false
+    "no-inferrable-types": false,
+    "member-ordering": false,
+    "variable-name": false,
+    "use-lifecycle-interface": false,
+    "no-output-native": false
   }
 }

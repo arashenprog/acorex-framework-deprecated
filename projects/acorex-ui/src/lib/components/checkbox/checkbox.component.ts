@@ -43,6 +43,7 @@ export class AXCheckBoxComponent extends AXBaseComponent implements AXBaseSizabl
   @Output()
   valueChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   //
+
   protected _value: boolean = false;
   //
   set value(val: boolean) {

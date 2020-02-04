@@ -2,7 +2,7 @@ import { AXHtmlUtil } from '../utils/utils.api';
 import { Input, Output, EventEmitter, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 
 
-export type AXElementSize = "xs" | "sm" | "md" | "lg" | "xl";
+export type AXElementSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 
 
@@ -18,12 +18,12 @@ export interface AXBaseSizableComponent {
 }
 
 export interface AXBaseInteractiveComponent {
-  disabled: boolean
+  disabled: boolean;
 }
 
 export interface AXBaseInputComponent extends AXBaseInteractiveComponent {
   readOnly: boolean;
-  focus(): void
+  focus(): void;
 }
 
 
@@ -38,7 +38,13 @@ export interface AXBaseClickableComponent extends AXBaseInteractiveComponent {
 
 export abstract class AXBaseTextComponent extends AXBaseComponent implements AXBaseSizableComponent, AXBaseValueComponent<string> {
 
-  @ViewChild("input", { static: true })
+  ngAfterViewInit() {
+    this.input.nativeElement.onkeyup = (e) => {
+      this.onkey.emit(e);
+    }
+  }
+
+  @ViewChild('input', { static: true })
   input: ElementRef<HTMLInputElement>;
 
   @Input()
@@ -48,7 +54,7 @@ export abstract class AXBaseTextComponent extends AXBaseComponent implements AXB
   readOnly: boolean = false;
 
   @Input()
-  size: "xs" | "sm" | "md" | "lg" | "xl";
+  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   @Input()
   placeholder: string;
@@ -60,14 +66,6 @@ export abstract class AXBaseTextComponent extends AXBaseComponent implements AXB
   @Output()
   onkey: EventEmitter<KeyboardEvent> = new EventEmitter<KeyboardEvent>();
 
-  ngAfterViewInit() {
-    this.input.nativeElement.onkeyup = (e) => {
-      this.onkey.emit(e);
-    }
-  }
-
-
-
   @Output()
   valueChange: EventEmitter<string> = new EventEmitter<string>();
 
@@ -77,7 +75,7 @@ export abstract class AXBaseTextComponent extends AXBaseComponent implements AXB
     return this._value;
   }
   public set value(v: string) {
-    if (v != this.value) {
+    if (v !== this.value) {
       this._value = v;
       this.cdr.markForCheck();
       this.valueChange.emit(v);
@@ -87,6 +85,7 @@ export abstract class AXBaseTextComponent extends AXBaseComponent implements AXB
   focus() {
     this.input.nativeElement.focus();
   }
+
 }
 
 
@@ -100,6 +99,7 @@ export abstract class AXBaseButtonComponent extends AXBaseComponent implements A
 
   @Input()
   size: AXElementSize;
+
 }
 
 export abstract class AXBaseDropdownComponent extends AXBaseComponent implements AXBaseInteractiveComponent, AXBaseSizableComponent {
