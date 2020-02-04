@@ -1,5 +1,6 @@
-<label class="checkbox-container" for="{{uid}}">
+<label class="ax checkbox {{size}}" for="{{uid}}">
   {{ label }}
-  <input  type="checkbox" id="{{uid}}"  [(ngModel)]="value" [ngModelOptions]="{standalone: true}" />
+  <input type="checkbox" id="{{uid}}" [(ngModel)]="value" [ngModelOptions]="{standalone: true}"
+    [attr.disabled]="disabled ? '' : null" />
   <span class="checkmark"></span>
-</label> 
+</label>

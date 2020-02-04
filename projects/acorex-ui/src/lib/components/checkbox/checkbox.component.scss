@@ -1,64 +1,80 @@
-//@import "../../../styles/mixins";
-
 .rtl {
-  .checkbox-container {
+  .checkbox {
     .checkmark {
       right: 0 !important;
       left: inherit !important;
     }
   }
 }
-// Check Box Custom Style
-.checkbox-container {
-  display: inline-block;
+.checkbox {
+  display: block;
   position: relative;
-  padding-inline-start: 20px;
+  padding-left: 1.9em;
+  line-height: 1.5em;
   cursor: pointer;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: inherit;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  margin: 0 var(--sp-md-size) 0 0;
-  .checkmark {
-    position: absolute;
-    top: 3px;
-    left: 0;
-    height: 15px;
-    width: 15px;
-    background-color: var(--white-color);
-    border: 1px solid;
-    border-color: var(--border-color);
-  }
-  input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-  }
 }
 
-.checkbox-container:hover input ~ .checkmark {
-  background-color: var(--border-color);
+/* Hide the browser's default checkbox */
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
-.checkbox-container input:checked ~ .checkmark {
-  background-color: var(--white-color);
-  border-color: var(--primary-color);
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.5em;
+  width: 1.5em;
+  background-color: var(--ax-white-color);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--ax-border-color);
+  -webkit-border-radius: var(--ax-size-border-radius);
+  -moz-border-radius: var(--ax-size-border-radius);
+  border-radius: var(--ax-size-border-radius);
 }
+
+/* On mouse-over, add a grey background color */
+.checkbox:hover input ~ .checkmark {
+  border-color: var(--ax-border-dark-color);
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox input:checked ~ .checkmark {
+  background-color: var(--ax-white-color);
+  border-color: var(--ax-primary-color);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-.checkbox-container input:checked ~ .checkmark:after {
+
+/* Show the checkmark when checked */
+.checkbox input:checked ~ .checkmark:after {
   display: block;
 }
-.checkbox-container .checkmark:after {
-  left: 4px;
-  top: 0;
-  width: 5px;
-  height: 10px;
-  border: solid var(--primary-color);
-  border-width: 0 1px 1px 0;
+
+/* Style the checkmark/indicator */
+.checkbox .checkmark:after {
+  left: 0.5em;
+  top: 0.2em;
+  width: 0.3em;
+  height: 0.6em;
+  border: solid var(--ax-primary-color);
+  border-width: 0 0.2em 0.2em 0;
+  -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }

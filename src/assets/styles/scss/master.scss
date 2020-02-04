@@ -3,6 +3,8 @@
 :root {
 
   --ax-border-color: rgba(34, 36, 38, 0.15);
+  --ax-border-dark-color: rgba(34, 36, 38, 0.30);
+
   // Create Sizes
   @each $name, $size in $sizes {
     @if type-of($size) == "map" {
