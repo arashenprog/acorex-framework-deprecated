@@ -1,15 +1,7 @@
-.rtl {
-  .checkbox {
-    .checkmark {
-      right: 0 !important;
-      left: inherit !important;
-    }
-  }
-}
 .checkbox {
   display: block;
   position: relative;
-  padding-left: 1.9em;
+  padding-left: 2.5em;
   line-height: 1.5em;
   cursor: pointer;
   font-size: inherit;
@@ -17,8 +9,14 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  [dir="rtl"] & {
+    padding-left: 0 !important;
+    padding-right: 2.5em;
+
+
+  }
 }
- .disabled .checkmark {
+.disabled .checkmark {
   background: var(--ax-gray-trans-dark-color) !important;
   border-color: var(--ax-gray-trans-dark-color) !important;
   cursor: not-allowed;
@@ -46,6 +44,10 @@
   -webkit-border-radius: var(--ax-size-border-radius);
   -moz-border-radius: var(--ax-size-border-radius);
   border-radius: var(--ax-size-border-radius);
+  [dir="rtl"] & {
+    right: 0 !important;
+    left: inherit !important;
+  }
 }
 
 /* On mouse-over, add a grey background color */
