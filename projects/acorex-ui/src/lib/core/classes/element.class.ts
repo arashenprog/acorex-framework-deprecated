@@ -12,7 +12,6 @@ export abstract class AXBaseComponent {
   }
 }
 
-<<<<<<< HEAD
 
 export interface AXBaseSizableComponent {
   size: AXElementSize;
@@ -25,16 +24,6 @@ export interface AXBaseInteractiveComponent {
 export interface AXBaseInputComponent extends AXBaseInteractiveComponent {
   readOnly: Boolean;
   focus(): void
-=======
-export abstract class AXBaseSizableComponent extends AXBaseComponent {
-  @Input()
-  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-}
-
-export abstract class AXBaseClickableComponent extends AXBaseSizableComponent {
-  @Output()
-  click: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
->>>>>>> 75a305fdba7903a0651273674a9316fe8edf7a46
 }
 
 
@@ -42,7 +31,6 @@ export interface AXBaseValueComponent<T> extends AXBaseInputComponent {
   valueChange: EventEmitter<T>;
   value: T;
 }
-<<<<<<< HEAD
 
 export interface AXBaseClickableComponent extends AXBaseInteractiveComponent {
   click: EventEmitter<MouseEvent>;
@@ -130,30 +118,3 @@ export abstract class AXBaseDropdownComponent extends AXBaseComponent implements
 }
 
 
-=======
-export abstract class AXCheckedBaseComponent extends AXBaseSizableComponent {
-  @Input() label: string = '';
-  constructor(protected cdr: ChangeDetectorRef) {
-    super();
-  }
-  // Value
-  @Output()
-  valueChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-  //
-  protected _value: boolean = false;
-  //
-  set value(val: boolean) {
-    if (this._value !== val) {
-      this._value = val;
-      this.valueChange.emit(val);
-      this.cdr.markForCheck();
-      this.cdr.detectChanges();
-    }
-  }
-  //
-  @Input()
-  get value(): boolean {
-    return this._value;
-  }
-}
->>>>>>> 75a305fdba7903a0651273674a9316fe8edf7a46
