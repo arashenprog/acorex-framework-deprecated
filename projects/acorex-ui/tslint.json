@@ -12,6 +12,7 @@
       "element",
       "ax",
       "kebab-case"
-    ]
+    ],
+    "no-inferrable-types": false
   }
 }

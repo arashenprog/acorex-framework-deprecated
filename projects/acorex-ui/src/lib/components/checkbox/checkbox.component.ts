@@ -7,7 +7,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef
 } from '@angular/core';
-import { AXBaseComponent } from '../../core';
+import { AXBaseComponent, AXBaseSizableComponent, AXBaseValueComponent, AXElementSize } from '../../core';
 
 @Component({
   selector: 'ax-check-box',
@@ -16,10 +16,26 @@ import { AXBaseComponent } from '../../core';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AXCheckBoxComponent extends AXBaseComponent {
+export class AXCheckBoxComponent extends AXBaseComponent implements AXBaseSizableComponent, AXBaseValueComponent<boolean> {
+
+  @Input()
+  readOnly: boolean;
+
+  @Input()
+  disabled: boolean;
+
+  @Input()
+  size: AXElementSize;
 
 
-  @Input() label: string = '';
+
+  @Input()
+
+  label: string = '';
+
+  focus(): void {
+
+  }
   constructor(protected cdr: ChangeDetectorRef) {
     super();
   }
