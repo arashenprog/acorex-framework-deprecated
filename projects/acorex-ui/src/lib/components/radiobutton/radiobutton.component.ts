@@ -19,7 +19,7 @@ import { AXBaseComponent, AXBaseSizableComponent, AXBaseValueComponent, AXElemen
 export class AXRadioButtonComponent extends AXBaseComponent implements AXBaseSizableComponent, AXBaseValueComponent<boolean> {
 
   @Input()
-  readOnly: boolean;
+  readonly: boolean;
 
   @Input()
   disabled: boolean;
@@ -61,7 +61,7 @@ export class AXRadioButtonComponent extends AXBaseComponent implements AXBaseSiz
   }
 
   handleClick() {
-    if (this.readOnly) {
+    if (this.readonly) {
       return;
     }
   }

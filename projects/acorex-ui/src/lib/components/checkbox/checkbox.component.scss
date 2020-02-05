@@ -21,6 +21,9 @@
   border-color: var(--ax-gray-trans-dark-color) !important;
   cursor: not-allowed;
 }
+.readonly .checkmark {
+  opacity: 0.5;
+}
 /* Hide the browser's default checkbox */
 .checkbox input {
   position: absolute;

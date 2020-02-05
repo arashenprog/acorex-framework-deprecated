@@ -22,7 +22,7 @@ export interface AXBaseInteractiveComponent {
 }
 
 export interface AXBaseInputComponent extends AXBaseInteractiveComponent {
-  readOnly: boolean;
+  readonly: boolean;
   focus(): void;
 }
 
@@ -57,7 +57,7 @@ export abstract class AXBaseTextComponent extends AXBaseComponent implements AXB
   disabled: boolean = false;
 
   @Input()
-  readOnly: boolean = false;
+  readonly: boolean = false;
 
   @Input()
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';

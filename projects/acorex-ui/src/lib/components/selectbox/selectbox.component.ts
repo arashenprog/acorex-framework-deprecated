@@ -17,7 +17,7 @@ export class AXSelectBoxComponent extends AXDataListComponent implements AXBaseS
     textbox: AXTextBoxComponent;
 
     @Input()
-    readOnly: boolean;
+    readonly: boolean;
 
     @Input()
     disabled: boolean;
