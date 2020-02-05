@@ -9,12 +9,12 @@ import { AXBaseTextComponent } from '../../core';
 })
 export class AXSearchBoxComponent extends AXBaseTextComponent {
 
-    constructor(protected cdr:ChangeDetectorRef) { 
+    constructor(protected cdr: ChangeDetectorRef) {
         super(cdr);
     }
 
     @Input()
-    delay:number= 500
+    delay: number = 500
 
     private searchChangeObserver: any;
 
@@ -30,6 +30,6 @@ export class AXSearchBoxComponent extends AXBaseTextComponent {
                 });
         }
 
-        this.searchChangeObserver.next((<any>e.target).value);
+        this.searchChangeObserver.next((e.target as any).value);
     }
 }

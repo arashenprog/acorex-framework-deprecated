@@ -14,7 +14,10 @@ export class AppComponent {
     { id: "2", title: "Same Title 2", number: 2000 },
     { id: "3", title: "Same Title 3", number: 3000 },
     { id: "4", title: "Same Title 4", number: 4000 }
-  ]
+  ];
+
+
+  selectedValues: any[] = ['2', '4'];
 
   handleDataReceived = (e: AXDataSourceReadParams) => {
     return Promise.resolve(this.dataSource)

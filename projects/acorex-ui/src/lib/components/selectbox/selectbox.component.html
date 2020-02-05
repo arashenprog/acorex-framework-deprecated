@@ -13,9 +13,9 @@
     <ng-container panel>
         <div class="ax list-container">           
             <div style="max-height: 300px;overflow-y: auto;">
-                <ng-container *ngIf="items && items.length; then thenTemplate; else elseTemplate"></ng-container>
+                <ng-container *ngIf="getItems(); then thenTemplate; else elseTemplate"></ng-container>
                 <ng-template #thenTemplate>
-                    <div class="list-item" [class.selected]="item.selected" *ngFor="let item of items"
+                    <div class="list-item" [class.selected]="item.selected" *ngFor="let item of getItems()"
                         (click)="handleItemClick(item)">
                         {{ item[textField] }}
                     </div>

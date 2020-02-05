@@ -14,7 +14,7 @@
 <br>
 <br>
 <ax-select-box size="md" textField="title" valueField="id" groupField="category" mode="multiple"
-  (selectedItemsChange)="handleSelectChange($event)">
+  (selectedItemsChange)="handleSelectChange($event)" [selectedValues]="selectedValues">
   <ax-data-source [provideData]="handleDataReceived">
   </ax-data-source>
 </ax-select-box>

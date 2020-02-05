@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 import { AXBaseTextComponent } from '../../core';
 
 @Component({
@@ -6,7 +6,7 @@ import { AXBaseTextComponent } from '../../core';
     templateUrl: './textbox.component.html',
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    host: { style: "flex:1" }
+    host: { style: 'flex:1' }
 })
 export class AXTextBoxComponent extends AXBaseTextComponent {
     constructor(protected cdr: ChangeDetectorRef) {
