@@ -10,13 +10,13 @@ import {
 import { AXBaseComponent, AXBaseSizableComponent, AXBaseValueComponent, AXElementSize } from '../../core';
 
 @Component({
-  selector: 'ax-check-box',
-  templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.scss'],
+  selector: 'ax-radio-button',
+  templateUrl: './radiobutton.component.html',
+  styleUrls: ['./radiobutton.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AXCheckBoxComponent extends AXBaseComponent implements AXBaseSizableComponent, AXBaseValueComponent<boolean> {
+export class AXRadioButtonComponent extends AXBaseComponent implements AXBaseSizableComponent, AXBaseValueComponent<boolean> {
 
   @Input()
   readOnly: boolean;
@@ -26,6 +26,8 @@ export class AXCheckBoxComponent extends AXBaseComponent implements AXBaseSizabl
 
   @Input()
   size: AXElementSize;
+
+
 
   @Input()
 
@@ -58,10 +60,9 @@ export class AXCheckBoxComponent extends AXBaseComponent implements AXBaseSizabl
     return this._value;
   }
 
-
   handleClick() {
     if (this.readOnly) {
-      return false;
+      return;
     }
   }
 }
