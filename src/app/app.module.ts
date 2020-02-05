@@ -16,9 +16,9 @@ import {
   AXSelectBoxModule,
   AXDataSourceModule,
   AXCheckBoxModule,
-  AXSearchBoxModule
-}
-  from 'acorex-ui';
+  AXSearchBoxModule,
+  AXRadioButtonModule
+} from 'acorex-ui';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import {
     AXSelectBoxModule,
     AXDataSourceModule,
     AXCheckBoxModule,
-    AXSearchBoxModule
+    AXSearchBoxModule,
+    AXRadioButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
