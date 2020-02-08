@@ -1,14 +1,14 @@
 import { AXMathUtil } from '../math/math-util';
 
 export type AXPlacement =
-  | "top-start"
-  | "top-middle"
-  | "top-end"
-  | "center-start"
-  | "center-end"
-  | "bottom-start"
-  | "bottom-middle"
-  | "bottom-end"
+  | 'top-start'
+  | 'top-middle'
+  | 'top-end'
+  | 'center-start'
+  | 'center-end'
+  | 'bottom-start'
+  | 'bottom-middle'
+  | 'bottom-end';
 
 export interface AXIPoint {
   x: number;
@@ -34,25 +34,25 @@ export class AXClientRec implements AXIClientRec {
 
 export class AXHtmlUtil {
   static getBoundingRectPoint(el: HTMLElement, placement: AXPlacement): AXPoint {
-    let rec = el.getBoundingClientRect();
-    let width = el.offsetWidth;
-    let height = el.offsetHeight;
+    const rec = el.getBoundingClientRect();
+    const width = el.offsetWidth;
+    const height = el.offsetHeight;
     switch (placement) {
-      case "top-start":
+      case 'top-start':
         return new AXPoint(rec.left, rec.top);
-      case "top-middle":
+      case 'top-middle':
         return new AXPoint(rec.left + (width / 2), rec.top);
-      case "top-end":
+      case 'top-end':
         return new AXPoint(rec.left + (width), rec.top);
-      case "center-end":
+      case 'center-end':
         return new AXPoint(rec.left + (width), rec.top + (height / 2));
-      case "bottom-end":
+      case 'bottom-end':
         return new AXPoint(rec.left + (width), rec.top + (height));
-      case "bottom-middle":
+      case 'bottom-middle':
         return new AXPoint(rec.left + (width / 2), rec.top + (height));
-      case "bottom-start":
+      case 'bottom-start':
         return new AXPoint(rec.left, rec.top + (height));
-      case "center-start":
+      case 'center-start':
         return new AXPoint(rec.left, rec.top + (height / 2));
       default:
         return new AXPoint(rec.left + (width / 2), rec.top + (height));
@@ -64,7 +64,7 @@ export class AXHtmlUtil {
   }
 
   static isInElementBound(pos: AXIPoint, element: HTMLElement): boolean {
-    let elBound = element.getBoundingClientRect();
+    const elBound = element.getBoundingClientRect();
     return AXHtmlUtil.isInRecPoint(pos, {
       left: elBound.left,
       width: elBound.width,
@@ -74,48 +74,48 @@ export class AXHtmlUtil {
   }
 
   static getUID(): string {
-    return "el-" + AXMathUtil.randomRange(1000000000, 9999999999).toString();
+    return 'el-' + AXMathUtil.randomRange(1000000000, 9999999999).toString();
   }
 
 
   static getRelatedPosition(source: HTMLElement, placement: AXPlacement, target: HTMLElement, alignment: AXPlacement): AXIPoint {
-    let result: AXIPoint = { x: 0, y: 0 };
+    const result: AXIPoint = { x: 0, y: 0 };
 
-    let sourcePos: AXPoint = AXHtmlUtil.getBoundingRectPoint(source, placement);
+    const sourcePos: AXPoint = AXHtmlUtil.getBoundingRectPoint(source, placement);
 
 
     let top: number = 0;
     let left: number = 0;
     switch (alignment) {
-      case "top-start":
+      case 'top-start':
         top = sourcePos.y;
         left = sourcePos.x;
         break;
-      case "top-middle":
+      case 'top-middle':
         top = sourcePos.y;
         left = sourcePos.x - target.offsetWidth / 2;
         break;
-      case "top-end":
+      case 'top-end':
         top = sourcePos.y;
         left = sourcePos.x - target.offsetWidth;
         break;
-      case "center-end":
+      case 'center-end':
         top = sourcePos.y - target.offsetHeight / 2;
         left = sourcePos.x - target.offsetWidth;
         break;
-      case "bottom-end":
+      case 'bottom-end':
         top = sourcePos.y - target.offsetHeight;
         left = sourcePos.x - target.offsetWidth;
         break;
-      case "bottom-middle":
+      case 'bottom-middle':
         top = sourcePos.y - target.offsetHeight;
         left = sourcePos.x - target.offsetWidth / 2;
         break;
-      case "bottom-start":
+      case 'bottom-start':
         top = sourcePos.y - target.offsetHeight;
         left = sourcePos.x;
         break;
-      case "center-start":
+      case 'center-start':
         top = sourcePos.y - target.offsetHeight / 2;
         left = sourcePos.x;
         break;

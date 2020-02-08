@@ -1,4 +1,14 @@
 <router-outlet></router-outlet>
+
+<ax-selection-list  mode="single" [items]="items" [selectedValues]="selectedValues" (selectedValuesChange)="handleSelectedValuesChange($event)">
+</ax-selection-list>
+<ax-selection-list mode="multiple" [items]="items" [selectedValues]="selectedValues" (selectedValuesChange)="handleSelectedValuesChange($event)">
+</ax-selection-list>
+
+<ax-selection-list direction="vertical" mode="single" [items]="items" [selectedValues]="selectedValues" (selectedValuesChange)="handleSelectedValuesChange($event)">
+</ax-selection-list>
+<ax-selection-list direction="vertical" mode="multiple" [items]="items" [selectedValues]="selectedValues" (selectedValuesChange)="handleSelectedValuesChange($event)">
+</ax-selection-list>
 <ax-form-group size="md">
   <ax-label>Name</ax-label>
   <ax-button icon="fas fa-check" start>Start</ax-button>

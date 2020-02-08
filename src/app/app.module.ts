@@ -17,7 +17,8 @@ import {
   AXDataSourceModule,
   AXCheckBoxModule,
   AXSearchBoxModule,
-  AXRadioButtonModule
+  AXRadioButtonModule,
+  AXSelectionListModule
 } from 'acorex-ui';
 
 @NgModule({
@@ -37,7 +38,8 @@ import {
     AXDataSourceModule,
     AXCheckBoxModule,
     AXSearchBoxModule,
-    AXRadioButtonModule
+    AXRadioButtonModule,
+    AXSelectionListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

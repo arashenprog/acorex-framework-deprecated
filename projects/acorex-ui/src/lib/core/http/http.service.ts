@@ -7,7 +7,7 @@ import { AXHttpRequestOptions } from './http-request.class';
 import {
     AX_HTTP_EVENT_INTERCEPTOR, AXHttpEventInterceptor
 } from './http-events.interceptor';
-import { AXPromise } from '../classes/classes.api';
+import { AXPromise } from '../classes';
 
 
 @Injectable({ providedIn: 'root' })

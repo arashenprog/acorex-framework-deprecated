@@ -6,8 +6,8 @@ import {
   AXComponentFactoryService,
   TranslateService,
   AXStorageService
-} from './services/services.api';
-import { AXScrollModule } from './utils/utils.api';
+} from './services';
+import { AXScrollModule } from './utils';
 
 @NgModule({
   declarations: [TranslatePipe],

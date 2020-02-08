@@ -12,4 +12,5 @@ export * from './menu';
 export * from './toolbar';
 export * from './checkbox';
 export * from './radiobutton';
+export * from './selection-list';
 
