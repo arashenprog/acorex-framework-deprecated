@@ -14,6 +14,9 @@ export class AXSelectionListComponent extends AXBaseComponent
 implements AXBaseSizableComponent, AXBaseValueComponent<boolean> {
   private _selectedItems: any[] = [];
 
+  @Input()
+  readonly: boolean;
+
   @Output()
   valueChange: EventEmitter<boolean>;
 
