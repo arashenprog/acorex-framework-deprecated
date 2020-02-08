@@ -42,8 +42,6 @@ export class AppComponent {
     },
   ]
 
-  selectedValues = [];
-
   handleSelectedValuesChange(e) {
     console.log(e);
 
