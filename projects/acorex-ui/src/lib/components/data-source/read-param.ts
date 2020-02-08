@@ -4,7 +4,7 @@ import { EventEmitter } from '@angular/core';
 
 export interface AXSortParams {
     field?: string;
-    sort?: "asc" | "desc";
+    sort?: 'asc' | 'desc';
 }
 export interface AXGroups {
     field?: string;
@@ -16,8 +16,8 @@ export interface AXFilterParams {
 }
 
 export interface AXFilterConditionParams {
-    dataType?: "text" | "number" | "date";
-    type?: "contains" | "equal" | "notEqual";
+    dataType?: 'text' | 'number' | 'date';
+    type?: 'contains' | 'equal' | 'notEqual';
     value?: any;
 }
 

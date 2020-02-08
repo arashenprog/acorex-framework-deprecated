@@ -22,7 +22,7 @@ export interface AXBaseInteractiveComponent {
 }
 
 export interface AXBaseInputComponent extends AXBaseInteractiveComponent {
-  readOnly: boolean;
+  readonly: boolean;
   focus(): void;
 }
 
@@ -40,8 +40,14 @@ export abstract class AXBaseTextComponent extends AXBaseComponent implements AXB
 
   ngAfterViewInit() {
     this.input.nativeElement.onkeyup = (e) => {
+      debugger;
+      this.value = (e.target as any).value;
       this.onkey.emit(e);
-    }
+    };
+    this.input.nativeElement.onkeydown = (e) => {
+      debugger;
+      this.onkey.emit(e);
+    };
   }
 
   @ViewChild('input', { static: true })
@@ -51,7 +57,7 @@ export abstract class AXBaseTextComponent extends AXBaseComponent implements AXB
   disabled: boolean = false;
 
   @Input()
-  readOnly: boolean = false;
+  readonly: boolean = false;
 
   @Input()
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -60,7 +66,7 @@ export abstract class AXBaseTextComponent extends AXBaseComponent implements AXB
   placeholder: string;
 
   constructor(protected cdr: ChangeDetectorRef) {
-    super()
+    super();
   }
 
   @Output()
@@ -75,10 +81,10 @@ export abstract class AXBaseTextComponent extends AXBaseComponent implements AXB
     return this._value;
   }
   public set value(v: string) {
-    if (v !== this.value) {
+    if (v !== this._value) {
       this._value = v;
-      this.cdr.markForCheck();
       this.valueChange.emit(v);
+      this.cdr.markForCheck();
     }
   }
 

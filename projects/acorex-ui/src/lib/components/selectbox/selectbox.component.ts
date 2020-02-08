@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, Input, EventEmitter, Output, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, EventEmitter, Output, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { AXDropdownComponent } from '../dropdown';
 import { AXDataListComponent } from '../data-list';
 import { AXBaseSizableComponent, AXElementSize, AXBaseInputComponent } from '../../core';
@@ -16,10 +16,8 @@ export class AXSelectBoxComponent extends AXDataListComponent implements AXBaseS
     @ViewChild(AXTextBoxComponent)
     textbox: AXTextBoxComponent;
 
-
-
     @Input()
-    readOnly: boolean;
+    readonly: boolean;
 
     @Input()
     disabled: boolean;
@@ -27,34 +25,18 @@ export class AXSelectBoxComponent extends AXDataListComponent implements AXBaseS
     @Input()
     size: AXElementSize;
 
-    text: string = "";
+    text: string = '';
 
     constructor(private cdr: ChangeDetectorRef) {
         super();
     }
 
-    @ViewChild("d", { static: true }) dropdown: AXDropdownComponent;
+    @ViewChild('d', { static: true }) dropdown: AXDropdownComponent;
 
     @Input() allowSearch: boolean = false;
-    @Input() textField: string = "text";
-    @Input() valueField: string = "value";
-    @Input() mode: "single" | "multiple" = "single";
-
-    // #region Search 
-
-    @Output()
-    searchTextChange: EventEmitter<string> = new EventEmitter<string>();
-    private _searchText: string;
-    @Input()
-    public get searchText(): string {
-        return this._searchText;
-    }
-    public set searchText(v: string) {
-        if (v != this._searchText) {
-            this._searchText = v;
-            this.searchTextChange.emit(v);
-        }
-    }
+    @Input() textField: string = 'text';
+    @Input() valueField: string = 'value';
+    @Input() mode: 'single' | 'multiple' = 'single';
 
     // #endregion 
 
@@ -67,7 +49,9 @@ export class AXSelectBoxComponent extends AXDataListComponent implements AXBaseS
         return this._selectedItems;
     }
     public set selectedItems(v: any[]) {
-        if (!v) v = [];
+        if (!v) {
+            v = [];
+        }
         this._selectedItems = v;
         if (v) {
             this.items.forEach(c => (c.selected = false));
@@ -81,24 +65,29 @@ export class AXSelectBoxComponent extends AXDataListComponent implements AXBaseS
 
     @Input()
     public get selectedValues(): any[] | any {
-        if (this.mode == "single")
+        if (this.mode === 'single') {
             return this._selectedItems.map(c => c[this.valueField])[0];
-        else
+        }
+        else {
             return this._selectedItems.map(c => c[this.valueField]) || [];
+        }
     }
     public set selectedValues(v: any[] | any) {
-        let old = this.selectedValues;
-        if (JSON.stringify(old) != JSON.stringify(v)) {
-            if (this.mode == "single") {
-                this.selectedItems = this.items.filter(c => v == c[this.valueField]);
+        const old = this.selectedValues;
+        if (JSON.stringify(old) !== JSON.stringify(v)) {
+            if (this.mode === 'single') {
+                this.selectedItems = this.items.filter(c => v === c[this.valueField]);
             }
             else {
-                if (Array.isArray(v))
+                if (Array.isArray(v)) {
                     this.selectedItems = this.items.filter(c => v.includes(c[this.valueField]));
-                else if (v)
-                    this.selectedItems = this.items.filter(c => v == c[this.valueField]);
-                else
+                }
+                else if (v) {
+                    this.selectedItems = this.items.filter(c => v === c[this.valueField]);
+                }
+                else {
                     this.selectedItems = [];
+                }
             }
             this.selectedValuesChange.emit(this.selectedValues);
         }
@@ -110,14 +99,14 @@ export class AXSelectBoxComponent extends AXDataListComponent implements AXBaseS
     }
 
     handleItemClick(item: any) {
-        let value = item[this.valueField];
-        if (this.mode == "single") {
+        const value = item[this.valueField];
+        if (this.mode === 'single') {
             this.selectedValues = value;
         }
         else {
-            let exists = this.selectedValues.slice(0);
+            const exists = this.selectedValues.slice(0);
             if (exists.includes(value)) {
-                this.selectedValues = exists.filter(c => c != value);
+                this.selectedValues = exists.filter(c => c !== value);
             }
             else {
                 exists.push(value);
@@ -134,19 +123,42 @@ export class AXSelectBoxComponent extends AXDataListComponent implements AXBaseS
     }
 
     handleKeyEvent(e: KeyboardEvent) {
-        if ((!this.text || this.text.length == 0) && e.key == "Backspace") {
-            if (Array.isArray(this.selectedItems)) {
+        if ((this.text === null || this.text.length === 0) && e.key === 'Backspace') {
+            if (this.mode === 'multiple') {
                 this.selectedItems.pop();
-                this.selectedItems=this.selectedItems;
+                this.selectedItems = this.selectedItems;
             }
             else {
                 this.selectedItems = null;
             }
-            this.cdr.markForCheck();
         }
+        if ( e.key === 'ArrowDown' && (this.getItems().length > 0)) {
+            this.dropdown.open();
+        }
+        if ((this.getItems().length > 0) && e.key === 'Enter') {
+            if (this.mode === 'multiple') {
+                this.selectedItems.push(this.getItems()[0]);
+                this.selectedItems = this.selectedItems;
+            }
+            else {
+                this.selectedItems = this.getItems()[0];
+            }
+            setTimeout(() => {
+                this.text = '';
+            }, 50);
+            this.dropdown.close();
+        }
+        this.cdr.markForCheck();
     }
-
+  
     focus(): void {
         this.textbox.focus();
+    }
+
+
+    getItems(): any[] {
+        return this.text ?
+            this.items.filter(c => (c[this.textField] as string).toLowerCase().includes(this.text.toLowerCase())) :
+            this.items;
     }
 }

@@ -19,7 +19,7 @@ import { AXBaseComponent, AXBaseSizableComponent, AXBaseValueComponent, AXElemen
 export class AXCheckBoxComponent extends AXBaseComponent implements AXBaseSizableComponent, AXBaseValueComponent<boolean> {
 
   @Input()
-  readOnly: boolean;
+  readonly: boolean;
 
   @Input()
   disabled: boolean;
@@ -60,7 +60,7 @@ export class AXCheckBoxComponent extends AXBaseComponent implements AXBaseSizabl
 
 
   handleClick() {
-    if (this.readOnly) {
+    if (this.readonly) {
       return false;
     }
   }

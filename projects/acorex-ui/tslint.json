@@ -17,6 +17,8 @@
     "member-ordering": false,
     "variable-name": false,
     "use-lifecycle-interface": false,
-    "no-output-native": false
+    "no-output-native": false,
+    "eofline":false,
+    "one-line" : false
   }
 }
