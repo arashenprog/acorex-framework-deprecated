@@ -11,6 +11,7 @@ export * from './data-list';
 export * from './menu';
 export * from './toolbar';
 export * from './checkbox';
-export * from './switch'
+export * from './switch';
 export * from './radiobutton';
 export * from './selection-list';
+export * from './popup';

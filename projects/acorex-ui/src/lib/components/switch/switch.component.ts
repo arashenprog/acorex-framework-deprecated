@@ -1,19 +1,46 @@
-import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
-import { AXFProperyEditor } from '../../config/editor';
+import {
+    Component,
+    ChangeDetectorRef,
+    ChangeDetectionStrategy,
+    ViewEncapsulation,
+    Output,
+    Input,
+    EventEmitter
+} from '@angular/core';
+import {
+    AXBaseSizableComponent,
+    AXBaseValueComponent,
+    AXElementSize,
+    AXBaseComponent
+} from '../../core';
 
 @Component({
-    templateUrl: "./checkbox.editor.html",
-    styleUrls: ["./checkbox.editor.scss"],
+    selector: 'ax-switch',
+    templateUrl: './switch.component.html',
+    styleUrls: ['./switch.component.scss'],
+    encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AXFCheckboxEditorComponent extends AXFProperyEditor<boolean> {
+export class AXSwitchComponent extends AXBaseComponent implements AXBaseSizableComponent, AXBaseValueComponent<boolean> {
+    @Output()
+    valueChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+    @Input()
+    value: boolean;
+
+    @Input()
+    readonly: boolean;
+
+    @Input()
+    disabled: boolean;
+
+    @Input()
+    size: AXElementSize;
 
     constructor(protected cdr: ChangeDetectorRef) {
-        super();
+        super()
     }
 
-    // handleCheckChange(e) {
-    //     this.handleValueChange(e.target.checked);
-    // }
+    focus(): void { }
 
 }

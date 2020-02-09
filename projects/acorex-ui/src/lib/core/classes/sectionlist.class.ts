@@ -1,5 +1,5 @@
-export class AXSectionList {
-    id: string;
+export interface AXSelectionList {
+    id?: string;
     name?: string;
     text: string;
     value: string;

@@ -1,7 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef, ViewEncapsulation, EventEmitter } from '@angular/core';
 import { Output } from '@angular/core';
 import { AXBaseSizableComponent, AXBaseValueComponent, AXBaseComponent, AXElementSize } from '../../core';
-import { AXSectionList } from '../../core/classes/sectionlist.class';
+import { AXSelectionList } from '../../core/classes/sectionlist.class';
 
 @Component({
   selector: 'ax-selection-list',
@@ -42,7 +42,7 @@ implements AXBaseSizableComponent, AXBaseValueComponent<boolean> {
   direction: string = 'horizontal';
 
   @Input()
-  items: Array<AXSectionList> = [];
+  items: Array<AXSelectionList> = [];
 
   @Input()
   mode: string = 'single';
