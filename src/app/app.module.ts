@@ -8,7 +8,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { TestComponent } from './test.component';
 import { ButtonsModule } from './demo/button/button.module';
 import { I18nModule } from './demo/i18n/i18n.page.module';
 
@@ -25,6 +24,6 @@ const DEMO = [ButtonsModule, I18nModule];
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [TestComponent]
+  entryComponents: []
 })
 export class AppModule { }

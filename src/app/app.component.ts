@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AXDataSourceReadParams, AXSelectionList, AXPopupService } from 'acorex-ui';
 import { } from 'projects/acorex-ui/src/lib/core';
-import { TestComponent } from './test.component';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +9,4 @@ import { TestComponent } from './test.component';
 })
 export class AppComponent {
 
- 
 }

@@ -36,5 +36,6 @@ const MODULES = [
     imports: [CommonModule, ...MODULES],
     exports: [ButtonPage],
     providers: [],
+    entryComponents: [ButtonPage]
 })
 export class ButtonsModule { }

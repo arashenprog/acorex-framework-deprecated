@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { TestComponent } from 'src/app/test.component';
 import { AXDataSourceReadParams, AXPopupService, AXSelectionList } from 'acorex-ui';
 
 @Component({
     templateUrl: './button.page.html',
     styleUrls: ['./button.page.scss']
 })
-export class ButtonPage  {
+export class ButtonPage {
     constructor(private popup: AXPopupService) {
 
     }
@@ -50,6 +49,6 @@ export class ButtonPage  {
     }
 
     onOpenPopupClick() {
-        this.popup.open(TestComponent, 'Hi');
+        this.popup.open(ButtonPage, 'Hi');
     }
 }

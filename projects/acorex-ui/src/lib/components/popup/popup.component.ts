@@ -23,13 +23,13 @@ import { ClosingEventArgs } from './popup.events';
   encapsulation: ViewEncapsulation.None
 })
 export class AXPopupComponent implements OnInit, OnDestroy {
-  @ViewChild('popupBody', { read: ViewContainerRef, static: true })
+  @ViewChild("popupBody", { read: ViewContainerRef, static: true })
   private popupBody: ViewContainerRef;
 
-  @ViewChild('container', { static: true })
+  @ViewChild("container", { static: true })
   private container: ElementRef;
 
-  @HostListener('keydown.escape', ['$event'])
+  @HostListener("keydown.escape", ["$event"])
   onKeydownHandler(event: KeyboardEvent) {
     if (this.closable) this.onCloseClick();
   }
@@ -63,10 +63,9 @@ export class AXPopupComponent implements OnInit, OnDestroy {
 
   close: EventEmitter<ClosingEventArgs> = new EventEmitter<ClosingEventArgs>();
 
-  size: 'sm' | 'md' | 'lg' | 'full' = 'sm';
+  size: "sm" | "md" | "lg" | "full" = "sm";
 
   data: any = {};
-  width: 200
 
   maximizable: boolean = false;
 
@@ -80,7 +79,7 @@ export class AXPopupComponent implements OnInit, OnDestroy {
   title: string;
 
   ngOnDestroy() {
-    if (this.comRef) this.comRef.destroy();
+    if (this.comRef) {this.comRef.destroy();}
   }
 
   focus() {
@@ -89,5 +88,4 @@ export class AXPopupComponent implements OnInit, OnDestroy {
 
 
   onFullScreen() { }
-
 }
