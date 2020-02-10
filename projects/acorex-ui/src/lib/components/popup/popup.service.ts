@@ -1,7 +1,7 @@
 import { Injectable, ComponentRef } from '@angular/core';
 import { AXPopupComponent } from './popup.component';
 import { ClosingAction, ClosedEventArgs, ClosingEventArgs } from './popup.events';
-import { InjectionService } from '../../core/services/injection.service';
+import { AXRenderService } from '../../core';
 
 export class AXPopupResult {
   private _executor: (
@@ -42,7 +42,7 @@ export class AXPopupResult {
 export class AXPopupService {
   private stack: Array<AXPopupComponent> = [];
 
-  constructor(private injection: InjectionService) { }
+  constructor(private injection: AXRenderService) { }
 
   open(content: any, title: string): AXPopupResult;
   open(
@@ -58,7 +58,7 @@ export class AXPopupService {
 
   open(arg1, arg2): AXPopupResult {
     const options: any = { closable: true, size: 'md', maximizable: false };
-    if (typeof arg2 == 'string') {
+    if (typeof arg2 === 'string') {
       options.title = arg2;
     } else {
       Object.assign(options, arg2);
@@ -66,25 +66,10 @@ export class AXPopupService {
     const com = this.injection.appendComponent(AXPopupComponent, options);
     const popup = com.instance as AXPopupComponent;
     popup.content = arg1;
-    this.stack.forEach(p => {
-      p.deactive();
-    });
-    this.stack.push(popup);
-    popup.active();
-    switch (options.size) {
-      case 'sm':
-        popup.width = 30;
-        break;
-      case 'md':
-        popup.width = 50;
-        break;
-      case 'lg':
-        popup.width = 80;
-        break;
-      default:
-        popup.width = 100;
-        break;
+    if (options.size) {
+      popup.size = options.size;
     }
+    this.stack.push(popup);
     return new AXPopupResult(popup, (closing, closed) => {
       popup.close.subscribe((e: ClosingEventArgs) => {
         if (popup.content.onClosing) {
@@ -107,7 +92,7 @@ export class AXPopupService {
                 e.data = z.data;
                 closing(d);
               } else {
-                if (e == null || e.cancel != true) {
+                if (e == null || e.cancel !== true) {
                   this.closePopup(closed, {
                     data: z.data
                   }, com);
@@ -128,9 +113,9 @@ export class AXPopupService {
     e: ClosingEventArgs,
     com: ComponentRef<any>
   ) {
-    if (closed) closed(e);
+    if (closed) { closed(e); }
     com.destroy();
     this.stack.pop();
-    if (this.stack.length) this.stack.reverse()[0].focus();
+    if (this.stack.length) { this.stack.reverse()[0].focus(); }
   }
 }

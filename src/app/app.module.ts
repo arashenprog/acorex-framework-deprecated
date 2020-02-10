@@ -7,20 +7,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {
-  AXTextBoxModule,
-  AXButtonModule,
-  AXFormGroupModule,
-  AXLabelModule,
-  AXDropdownModule,
-  AXSelectBoxModule,
-  AXDataSourceModule,
-  AXCheckBoxModule,
-  AXSearchBoxModule,
-  AXRadioButtonModule,
-  AXSelectionListModule
-} from 'acorex-ui';
 
+import { TestComponent } from './test.component';
+import { ButtonsModule } from './demo/button/button.module';
+import { I18nModule } from './demo/i18n/i18n.page.module';
+
+const DEMO = [ButtonsModule, I18nModule];
 @NgModule({
   declarations: [
     AppComponent
@@ -29,19 +21,10 @@ import {
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    AXTextBoxModule,
-    AXButtonModule,
-    AXFormGroupModule,
-    AXLabelModule,
-    AXDropdownModule,
-    AXSelectBoxModule,
-    AXDataSourceModule,
-    AXCheckBoxModule,
-    AXSearchBoxModule,
-    AXRadioButtonModule,
-    AXSelectionListModule
+    ...DEMO
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [TestComponent]
 })
 export class AppModule { }

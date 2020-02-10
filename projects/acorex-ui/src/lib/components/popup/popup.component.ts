@@ -23,32 +23,27 @@ import { ClosingEventArgs } from './popup.events';
   encapsulation: ViewEncapsulation.None
 })
 export class AXPopupComponent implements OnInit, OnDestroy {
-  @ViewChild('popupBody', { read: ViewContainerRef })
+  @ViewChild('popupBody', { read: ViewContainerRef, static: true })
   private popupBody: ViewContainerRef;
 
-  @ViewChild('container')
+  @ViewChild('container', { static: true })
   private container: ElementRef;
 
   @HostListener('keydown.escape', ['$event'])
   onKeydownHandler(event: KeyboardEvent) {
-    if (this.closable) {
-      this.onCloseClick();
-    }
+    if (this.closable) this.onCloseClick();
   }
 
   private comRef: ComponentRef<any>;
-  private isActivated: boolean = false;
 
   constructor(
     private resolver: ComponentFactoryResolver,
-    private element: ElementRef,
-    private zone: NgZone
   ) { }
 
   ngOnInit(): void {
     const factory = this.resolver.resolveComponentFactory(this.content);
     this.comRef = this.popupBody.createComponent(factory);
-    const com = this.comRef.instance as any;
+    let com = this.comRef.instance as any;
     if (com.closeEvent) {
       com.closeEvent.subscribe((e: ClosingEventArgs) => {
         this.close.emit(e);
@@ -57,9 +52,9 @@ export class AXPopupComponent implements OnInit, OnDestroy {
     this.content = com;
     Object.assign(this.content, this.data);
     //
-    if (com.onReceiveData && this.data) {
-      com.onReceiveData(this.data);
-    }
+    // if (com.onReceiveData && this.data) {
+    //   com.onReceiveData(this.data);
+    // }
   }
 
   ngAfterViewInit() {
@@ -68,9 +63,10 @@ export class AXPopupComponent implements OnInit, OnDestroy {
 
   close: EventEmitter<ClosingEventArgs> = new EventEmitter<ClosingEventArgs>();
 
-  width: number = 100;
+  size: 'sm' | 'md' | 'lg' | 'full' = 'sm';
 
   data: any = {};
+  width: 200
 
   maximizable: boolean = false;
 
@@ -84,22 +80,14 @@ export class AXPopupComponent implements OnInit, OnDestroy {
   title: string;
 
   ngOnDestroy() {
-    if (this.comRef) {
-      this.comRef.destroy();
-    }
+    if (this.comRef) this.comRef.destroy();
   }
 
   focus() {
     setTimeout(() => this.container.nativeElement.focus());
   }
 
-  active() {
-    this.isActivated = true;
-  }
 
-  deactive() {
-    this.isActivated = false;
-  }
   onFullScreen() { }
 
 }

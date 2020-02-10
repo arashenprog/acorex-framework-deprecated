@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class InjectionService {
     private _container: ComponentRef<any>;
 
