@@ -123,4 +123,3 @@ export abstract class AXBaseDropdownComponent extends AXBaseComponent implements
   abstract open();
 }
 
-

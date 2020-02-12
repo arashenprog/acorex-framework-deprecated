@@ -22,7 +22,9 @@
     background: var(--ax-white-color);
     display: flex;
     flex-direction: column;
-    border-radius: 4px;
+    border-radius: var(--ax-size-border-radius);
+    -webkit-border-radius: var(--ax-size-border-radius);
+    -moz-border-radius: var(--ax-size-border-radius);
     overflow: hidden;
     max-height: 95vh;
     height: fit-content;

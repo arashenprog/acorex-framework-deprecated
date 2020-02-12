@@ -18,7 +18,8 @@
     "variable-name": false,
     "use-lifecycle-interface": false,
     "no-output-native": false,
-    "eofline":false,
-    "one-line" : false
+    "eofline": false,
+    "one-line": false,
+    "no-output-on-prefix": false
   }
 }

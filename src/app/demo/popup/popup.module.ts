@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { I18nPage } from './i18n.page';
+import { PopupPage } from './popup.page';
 
 @NgModule({
-    declarations: [I18nPage],
+    declarations: [PopupPage],
     imports: [ CommonModule ],
-    exports: [I18nPage],
+    exports: [PopupPage],
     providers: [],
 })
-export class I18nPageModule {}
+export class PopupPageModule {}

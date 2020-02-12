@@ -8,10 +8,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { ButtonsModule } from './demo/button/button.module';
-import { I18nModule } from './demo/i18n/i18n.page.module';
+import { ButtonsPageModule } from './demo/button/button.module';
+import { I18nPageModule } from './demo/i18n/i18n.page.module';
+import { PopupPageModule } from './demo/popup/popup.module';
 
-const DEMO = [ButtonsModule, I18nModule];
+const DEMO = [ButtonsPageModule, I18nPageModule,PopupPageModule];
 @NgModule({
   declarations: [
     AppComponent

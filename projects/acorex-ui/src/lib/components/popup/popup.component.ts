@@ -12,38 +12,31 @@ import {
   ComponentRef,
   OnDestroy,
   ChangeDetectorRef,
-  NgZone
+  NgZone,
+  Output
 } from '@angular/core';
 import { ClosingEventArgs } from './popup.events';
-
+import { AXBaseComponent, AXBaseSizableComponent } from '../../core';
+export interface PopupHeaderButtons {
+  id: string;
+  title: string;
+  icon: string;
+  name: string;
+}
 @Component({
   selector: 'ax-popup',
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AXPopupComponent implements OnInit, OnDestroy {
-  @ViewChild("popupBody", { read: ViewContainerRef, static: true })
-  private popupBody: ViewContainerRef;
-
-  @ViewChild("container", { static: true })
-  private container: ElementRef;
-
-  @HostListener("keydown.escape", ["$event"])
-  onKeydownHandler(event: KeyboardEvent) {
-    if (this.closable) this.onCloseClick();
+export class AXPopupComponent extends AXBaseComponent implements OnInit, OnDestroy {
+  constructor(private resolver: ComponentFactoryResolver) {
+    super();
   }
-
-  private comRef: ComponentRef<any>;
-
-  constructor(
-    private resolver: ComponentFactoryResolver,
-  ) { }
-
   ngOnInit(): void {
     const factory = this.resolver.resolveComponentFactory(this.content);
     this.comRef = this.popupBody.createComponent(factory);
-    let com = this.comRef.instance as any;
+    const com = this.comRef.instance as any;
     if (com.closeEvent) {
       com.closeEvent.subscribe((e: ClosingEventArgs) => {
         this.close.emit(e);
@@ -51,19 +44,25 @@ export class AXPopupComponent implements OnInit, OnDestroy {
     }
     this.content = com;
     Object.assign(this.content, this.data);
-    //
-    // if (com.onReceiveData && this.data) {
-    //   com.onReceiveData(this.data);
-    // }
+  }
+  @ViewChild('popupBody', { read: ViewContainerRef, static: true })
+  private popupBody: ViewContainerRef;
+
+  @ViewChild('container', { static: true })
+  private container: ElementRef;
+
+  @HostListener('keydown.escape', ['$event'])
+  onKeydownHandler(event: KeyboardEvent) {
+    if (this.closable) { this.onCloseClick(); }
   }
 
-  ngAfterViewInit() {
-    this.focus();
-  }
+  private comRef: ComponentRef<any>;
+
+  title: string;
 
   close: EventEmitter<ClosingEventArgs> = new EventEmitter<ClosingEventArgs>();
 
-  size: "sm" | "md" | "lg" | "full" = "sm";
+  size: 'sm' | 'md' | 'lg' | 'full' = 'sm';
 
   data: any = {};
 
@@ -72,20 +71,32 @@ export class AXPopupComponent implements OnInit, OnDestroy {
   closable: boolean = true;
 
   content: any;
+
+  @Output()
+  onButtonsClick: EventEmitter<PopupHeaderButtons> = new EventEmitter<PopupHeaderButtons>();
+
+  @Input()
+  headerButtons: PopupHeaderButtons[] = [];
+
   onCloseClick() {
     this.close.emit({ cancel: false });
   }
 
-  title: string;
+  ngAfterViewInit() {
+    this.focus();
+  }
 
   ngOnDestroy() {
-    if (this.comRef) {this.comRef.destroy();}
+    if (this.comRef) { this.comRef.destroy(); }
   }
 
   focus() {
     setTimeout(() => this.container.nativeElement.focus());
   }
 
-
   onFullScreen() { }
+
+  handleHeaderButtonClick(e) {
+    this.onButtonsClick.emit(e);
+  }
 }

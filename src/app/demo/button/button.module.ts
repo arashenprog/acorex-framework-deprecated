@@ -38,4 +38,4 @@ const MODULES = [
     providers: [],
     entryComponents: [ButtonPage]
 })
-export class ButtonsModule { }
+export class ButtonsPageModule { }

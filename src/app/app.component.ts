@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AXDataSourceReadParams, AXSelectionList, AXPopupService } from 'acorex-ui';
-import { } from 'projects/acorex-ui/src/lib/core';
+import { routes } from './app-routing.module';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +9,8 @@ import { } from 'projects/acorex-ui/src/lib/core';
 })
 export class AppComponent {
 
+  items: any[] = [];
+  constructor() {
+    this.items = routes;
+  }
 }
