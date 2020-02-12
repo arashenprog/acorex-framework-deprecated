@@ -11,8 +11,11 @@ import { AppComponent } from './app.component';
 import { ButtonsPageModule } from './demo/button/button.module';
 import { I18nPageModule } from './demo/i18n/i18n.page.module';
 import { PopupPageModule } from './demo/popup/popup.module';
+import { HomePageModule } from './demo/home/home.module';
+import { InputPageModule } from './demo/input/input.module';
+import { SelectPageModule } from './demo/select/select.module';
 
-const DEMO = [ButtonsPageModule, I18nPageModule,PopupPageModule];
+const DEMO = [HomePageModule, ButtonsPageModule, I18nPageModule, PopupPageModule, InputPageModule, SelectPageModule];
 @NgModule({
   declarations: [
     AppComponent

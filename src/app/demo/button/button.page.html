@@ -1,61 +1,49 @@
+<ax-button type="primary" size="xxs">XXS Size | Type primary</ax-button>
+<ax-button type="secondary" size="xs">XS Size | Type secondary</ax-button>
+<ax-button type="warning" size="sm">SM Size | Type warning</ax-button>
+<ax-button type="danger" size="md">MD Size | Type danger</ax-button>
+<ax-button type="info" size="lg">LG Size | Type info</ax-button>
+<ax-button type="primary" size="xl">XL Size | Type Primary</ax-button>
+<ax-button type="primary" size="xxl">XXL Size | Type Primary</ax-button>
 
-<ax-button (click)="onOpenPopupClick()">
-    Open Popup
-  </ax-button>
-  <ax-selection-list  mode="single" [items]="items" [selectedValues]="selectedValues" (selectedValuesChange)="handleSelectedValuesChange($event)">
-  </ax-selection-list>
-  <ax-selection-list mode="multiple" [items]="items" [selectedValues]="selectedValues" (selectedValuesChange)="handleSelectedValuesChange($event)">
-  </ax-selection-list>
-  
-  <ax-selection-list direction="vertical" mode="single" [items]="items" [selectedValues]="selectedValues" (selectedValuesChange)="handleSelectedValuesChange($event)">
-  </ax-selection-list>
-  <ax-selection-list direction="vertical" mode="multiple" [items]="items" [selectedValues]="selectedValues" (selectedValuesChange)="handleSelectedValuesChange($event)">
-  </ax-selection-list>
-  <ax-form-group size="md">
-    <ax-label>Name</ax-label>
-    <ax-button icon="fas fa-check" start>Start</ax-button>
-    <ax-text-box [disabled]="true"></ax-text-box>
-    <ax-button icon="fas fa-check" [disabled]="true">End</ax-button>
-  </ax-form-group>
-  <br>
-  <br>
-  <br>
-  <ax-drop-down size="md">
-  </ax-drop-down>
-  <br>
-  <br>
-  <br>
-  <ax-select-box size="md" textField="title" valueField="id" groupField="category" mode="multiple"
-    (selectedItemsChange)="handleSelectChange($event)" [selectedValues]="selectedValues">
-    <ax-data-source [provideData]="handleDataReceived">
-    </ax-data-source>
-  </ax-select-box>
-  <br>
-  <br>
-  <ax-search-box></ax-search-box>
-  <ax-form-group size="md">
-    <ax-label>Name</ax-label>
-    <ax-drop-down>
-      <ax-button icon="fas fa-plus"></ax-button>
-    </ax-drop-down>
+
+
+<ax-selection-list direction="vertical" mode="single" [items]="items" [selectedValues]="selectedValues"
+  (selectedValuesChange)="handleSelectedValuesChange($event)">
+</ax-selection-list>
+<ax-selection-list direction="vertical" mode="multiple" [items]="items" [selectedValues]="selectedValues"
+  (selectedValuesChange)="handleSelectedValuesChange($event)">
+</ax-selection-list>
+<ax-selection-list mode="single" [items]="items" [selectedValues]="selectedValues"
+  (selectedValuesChange)="handleSelectedValuesChange($event)">
+</ax-selection-list>
+<ax-selection-list mode="multiple" [items]="items" [selectedValues]="selectedValues"
+  (selectedValuesChange)="handleSelectedValuesChange($event)">
+</ax-selection-list>
+
+
+<ax-form-group size="md">
+  <ax-label>Name</ax-label>
+  <ax-drop-down>
     <ax-button icon="fas fa-plus"></ax-button>
-  </ax-form-group>
-  <br><br>
-  <ax-check-box label="Disabled" size="md" disabled="true"></ax-check-box>
-  <br><br>
-  <ax-check-box label="readonly" size="md" readonly="true" [value]="true"></ax-check-box>
-  <br><br>
-  <ax-check-box label="Checkbox XXL Size" size="xxl"></ax-check-box>
-  <br><br>
-  <ax-check-box label="Checkbox XL Size" size="xl"></ax-check-box>
-  <br><br>
-  <ax-check-box label="Checkbox LG Size" size="lg" ></ax-check-box>
-  <br><br>
-  <ax-check-box label="Checkbox MD Size" size="md"></ax-check-box>
-  <br><br>
-  <ax-check-box label="Checkbox SM Size" size="sm"></ax-check-box>
-  <br><br>
-  <ax-check-box label="Checkbox XS Size" size="xs"></ax-check-box>
-  <br><br>
-  <ax-check-box label="Checkbox XXS Size" size="xxs"></ax-check-box>
-  
+  </ax-drop-down>
+  <ax-button icon="fas fa-plus"></ax-button>
+</ax-form-group>
+<br><br>
+<ax-check-box label="Disabled" size="md" disabled="true"></ax-check-box>
+<br><br>
+<ax-check-box label="readonly" size="md" readonly="true" [value]="true"></ax-check-box>
+<br><br>
+<ax-check-box label="Checkbox XXL Size" size="xxl"></ax-check-box>
+<br><br>
+<ax-check-box label="Checkbox XL Size" size="xl"></ax-check-box>
+<br><br>
+<ax-check-box label="Checkbox LG Size" size="lg"></ax-check-box>
+<br><br>
+<ax-check-box label="Checkbox MD Size" size="md"></ax-check-box>
+<br><br>
+<ax-check-box label="Checkbox SM Size" size="sm"></ax-check-box>
+<br><br>
+<ax-check-box label="Checkbox XS Size" size="xs"></ax-check-box>
+<br><br>
+<ax-check-box label="Checkbox XXS Size" size="xxs"></ax-check-box>
