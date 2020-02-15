@@ -1,10 +1,11 @@
 <div class="ax-dialog">
     <div class="dialog-content">
-        {{message}}
+            {{message}}
     </div>
     <div class="buttons">
         <ng-container *ngFor="let button of buttons">
-            <ax-button [type]="button.type" [submitBehavior]="button.submitBehavior" [cancelBehavior]="button.cancelBehavior" (onClick)="onInnerClick(button)">
+            <ax-button [type]="button.type" [submitBehavior]="button.submitBehavior"
+                [cancelBehavior]="button.cancelBehavior" (onClick)="onInnerClick(button)">
                 <i class="{{button.icon}}"></i>
                 {{button.text}}
             </ax-button>
