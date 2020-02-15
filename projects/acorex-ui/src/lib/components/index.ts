@@ -15,3 +15,5 @@ export * from './switch';
 export * from './radiobutton';
 export * from './selection-list';
 export * from './popup';
+export * from './dialog';
+

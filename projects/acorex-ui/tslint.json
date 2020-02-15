@@ -20,6 +20,7 @@
     "no-output-native": false,
     "eofline": false,
     "one-line": false,
-    "no-output-on-prefix": false
+    "no-output-on-prefix": false,
+    "ban-types":false
   }
 }
