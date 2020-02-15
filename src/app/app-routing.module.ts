@@ -7,6 +7,7 @@ import { PopupPage } from './demo/popup/popup.page';
 import { Routes } from '@angular/router';
 import { InputPage } from './demo/input/input.page';
 import { SelectPage } from './demo/select/select.page';
+import { DataGridPage } from './demo/dataGrid/dataGrid.page';
 
 
 export const routes: Routes = [
@@ -16,7 +17,9 @@ export const routes: Routes = [
   { path: 'input', pathMatch: 'full', component: InputPage },
   { path: 'select', pathMatch: 'full', component: SelectPage },
   { path: 'popup', pathMatch: 'full', component: PopupPage },
-  { path: 'i18n', pathMatch: 'full', component: I18nPage }
+  { path: 'i18n', pathMatch: 'full', component: I18nPage },
+  { path: 'datagrid', pathMatch: 'full', component: DataGridPage },
+
 
 ];
 @NgModule({

@@ -4,5 +4,5 @@ export * from './promise.class';
 export * from './select.class';
 export * from './element.class';
 export * from './sectionlist.class';
-
+export * from './datetime.class';
 

@@ -14,8 +14,9 @@ import { PopupPageModule } from './demo/popup/popup.module';
 import { HomePageModule } from './demo/home/home.module';
 import { InputPageModule } from './demo/input/input.module';
 import { SelectPageModule } from './demo/select/select.module';
+import { DataGridPageModule } from './demo/dataGrid/dataGrid.page.module';
 
-const DEMO = [HomePageModule, ButtonsPageModule, I18nPageModule, PopupPageModule, InputPageModule, SelectPageModule];
+const DEMO = [HomePageModule, ButtonsPageModule, I18nPageModule, PopupPageModule, InputPageModule, SelectPageModule,DataGridPageModule];
 @NgModule({
   declarations: [
     AppComponent

@@ -5,5 +5,10 @@
     "@angular/common": "^9.0.0",
     "@angular/core": "^9.0.0",
     "tslib": "^1.10.0"
+  },
+  "dependencies": {
+    "ag-grid-angular": "^22.1.1",
+    "ag-grid-community": "^22.1.1",
+    "jalali-moment": "^3.3.3"
   }
 }

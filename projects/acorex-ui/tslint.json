@@ -21,6 +21,7 @@
     "eofline": false,
     "one-line": false,
     "no-output-on-prefix": false,
-    "ban-types":false
+    "ban-types": false,
+    "no-empty-interface": false
   }
 }
