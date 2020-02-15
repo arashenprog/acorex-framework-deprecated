@@ -1,4 +1,19 @@
-<div class="ax-lov-box" [style.display]="mode=='hidden' ? 'none':'unset'">
+
+
+<div class="ax form-item {{size}}">
+    <div class="content">
+        <ng-content select="ng-container[header]">
+        </ng-content> 
+    </div>
+    <div class="ax buttons">
+        <ax-button icon="fas fa-list-ul icon" type="light" (click)="handleButtonClick($event)">
+        </ax-button>
+        <ng-content select="ax-button">
+        </ng-content>
+    </div>
+</div>
+
+<!-- <div class="ax-lov-box" [style.display]="mode=='hidden' ? 'none':'unset'">
     <div class="ax-field-set">
         <div class="ax-field-set-wrapper" [ngClass]="{ 'no-label': !label }">
             <fieldset [ngClass]="{ 'input-focused': isFocused, 'input-error': errorText }">
@@ -22,4 +37,4 @@
         {{ errorText }}
     </div>
 
-</div>
+</div> -->

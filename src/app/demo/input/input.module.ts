@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputPage } from './input.page';
-import { AXTextBoxModule, AXFormGroupModule, AXButtonModule, AXSearchBoxModule, AXLabelModule } from 'acorex-ui';
+import { AXTextBoxModule, AXFormGroupModule, AXButtonModule, AXSearchBoxModule, AXLabelModule, AXLOVModule } from 'acorex-ui';
+
+
+
+
+
 
 @NgModule({
   imports: [
@@ -10,7 +15,8 @@ import { AXTextBoxModule, AXFormGroupModule, AXButtonModule, AXSearchBoxModule, 
     AXTextBoxModule,
     AXLabelModule,
     AXButtonModule,
-    AXSearchBoxModule
+    AXSearchBoxModule,
+    AXLOVModule
   ],
   declarations: [InputPage],
   exports: [InputPage]

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild } from '@angular/core';
-//import { AXBasePageComponent } from "../../../nav/page.component"
+//import { AXBasePageComponent } from '../../../nav/page.component'
 import { AXDataGridComponent } from '../../data-grid/datagrid.component';
 import { AXGridDataColumn } from '../../data-grid/columns/column.component';
 import { AXDataSourceComponent } from '../../data-source/datasource.component';
@@ -11,7 +11,7 @@ import { AXBasePageComponent } from '../../../core';
 export class AXDataLovPopupComponent extends AXBasePageComponent {
 
 
-    @ViewChild("grid", { static: true })
+    @ViewChild('grid', { static: true })
     grid: AXDataGridComponent;
 
 

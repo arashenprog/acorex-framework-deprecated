@@ -1,9 +1,17 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, EventEmitter, Output, ViewChild, ChangeDetectorRef } from '@angular/core';
+import {
+    Component,
+    ViewEncapsulation,
+    ChangeDetectionStrategy,
+    Input,
+    EventEmitter,
+    Output,
+    ViewChild,
+    ChangeDetectorRef
+} from '@angular/core';
 import { AXDropdownComponent } from '../dropdown';
 import { AXDataListComponent } from '../data-list';
 import { AXBaseSizableComponent, AXElementSize, AXBaseInputComponent } from '../../core';
 import { AXTextBoxComponent } from '../textbox';
-import { runInThisContext } from 'vm';
 
 @Component({
     selector: 'ax-select-box',
@@ -132,7 +140,7 @@ export class AXSelectBoxComponent extends AXDataListComponent implements AXBaseS
                 this.selectedItems = null;
             }
         }
-        if ( e.key === 'ArrowDown' && (this.getItems().length > 0)) {
+        if (e.key === 'ArrowDown' && (this.getItems().length > 0)) {
             this.dropdown.open();
         }
         if ((this.getItems().length > 0) && e.key === 'Enter') {
@@ -150,7 +158,7 @@ export class AXSelectBoxComponent extends AXDataListComponent implements AXBaseS
         }
         this.cdr.markForCheck();
     }
-  
+
     focus(): void {
         this.textbox.focus();
     }

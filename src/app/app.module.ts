@@ -16,6 +16,7 @@ import { InputPageModule } from './demo/input/input.module';
 import { SelectPageModule } from './demo/select/select.module';
 import { DataGridPageModule } from './demo/dataGrid/dataGrid.page.module';
 
+
 const DEMO = [HomePageModule, ButtonsPageModule, I18nPageModule, PopupPageModule, InputPageModule, SelectPageModule,DataGridPageModule];
 @NgModule({
   declarations: [

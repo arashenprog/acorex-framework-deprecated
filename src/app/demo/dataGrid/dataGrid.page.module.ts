@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DataGridPage } from './dataGrid.page';
 import { AXDataGridModule, AXDataSourceModule } from 'acorex-ui';
 
+
 @NgModule({
     declarations: [DataGridPage],
     imports: [CommonModule, AXDataGridModule, AXDataSourceModule],
