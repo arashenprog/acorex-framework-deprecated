@@ -86,9 +86,9 @@ export abstract class AXBaseTextComponent extends AXBaseComponent implements AXB
     }
   }
 
-  focus() {
-    this.input.nativeElement.focus();
-  }
+  abstract focus();
+
+
 
 }
 

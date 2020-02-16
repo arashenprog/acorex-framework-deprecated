@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewEncapsulation, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { AXBaseTextComponent } from '../../core';
 
 @Component({
@@ -11,5 +11,22 @@ import { AXBaseTextComponent } from '../../core';
 export class AXTextBoxComponent extends AXBaseTextComponent {
     constructor(protected cdr: ChangeDetectorRef) {
         super(cdr);
+    }
+
+    ngAfterViewInit() {
+        this.input.nativeElement.onkeyup = (e) => {
+            this.value = (e.target as any).value;
+            this.onkey.emit(e);
+        };
+        this.input.nativeElement.onkeydown = (e) => {
+            this.onkey.emit(e);
+        };
+    }
+
+    @ViewChild('input', { static: true })
+    input: ElementRef<HTMLInputElement>;
+
+    focus() {
+        this.input.nativeElement.focus();
     }
 }
