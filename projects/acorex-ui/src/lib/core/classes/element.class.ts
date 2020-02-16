@@ -1,4 +1,4 @@
-import { AXHtmlUtil } from '../utils/utils.api';
+import { AXHtmlUtil } from '../utils';
 import { Input, Output, EventEmitter, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 
 
@@ -107,5 +107,4 @@ export abstract class AXBaseDropdownComponent extends AXBaseComponent implements
   abstract close();
   abstract open();
 }
-
 

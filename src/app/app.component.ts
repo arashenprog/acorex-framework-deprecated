@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { AXDataSourceReadParams } from 'acorex-ui';
-
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `<router-outlet></router-outlet>`
 })
 export class AppComponent {
   title = 'acorex-framework';
@@ -25,7 +23,4 @@ export class AppComponent {
     });
   }
 
-  handleSelectChange(e) {
-    console.log(e);
-  }
 }

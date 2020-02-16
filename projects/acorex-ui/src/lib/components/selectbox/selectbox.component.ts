@@ -1,4 +1,13 @@
-import { Component, ViewEncapsulation, ChangeDetectionStrategy, Input, EventEmitter, Output, ViewChild, ChangeDetectorRef } from '@angular/core';
+import {
+    Component,
+    ViewEncapsulation,
+    ChangeDetectionStrategy,
+    Input,
+    EventEmitter,
+    Output,
+    ViewChild,
+    ChangeDetectorRef
+} from '@angular/core';
 import { AXDropdownComponent } from '../dropdown';
 import { AXDataListComponent } from '../data-list';
 import { AXBaseSizableComponent, AXElementSize, AXBaseInputComponent } from '../../core';

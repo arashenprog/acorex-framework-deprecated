@@ -78,14 +78,6 @@ export class AXArrayUtil {
                                             result = false;
                                     }
                                 } else if (f.dataType === 'date') {
-                                    // switch (f.condition) {
-                                    //     case 'equal':
-                                    //         result = (v1 && v2) && (v1 as AXDateTime).equal(v2, 'day');
-                                    //         break;
-                                    //     case 'between':
-                                    //         result = (v1 && v2) && new AXDateTimeRange(v2[0], v2[1]).includes(v1);
-                                    //         break;
-                                    // }
                                 } else if (f.dataType === 'number') {
                                     v1 = Number(v1);
                                     switch (f.condition) {
