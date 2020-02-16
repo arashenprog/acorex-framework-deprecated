@@ -7,10 +7,11 @@ import { AXDataGridModule } from '../data-grid/datagrid.module';
 import { AXDataSourceModule } from '../data-source/datasource.module';
 import { AXButtonModule } from '../button';
 import { AXToolbarModule } from '../toolbar';
+import { AXSelectBoxModule } from '../selectbox';
 
 @NgModule({
     declarations: [AXLOVComponent, AXDataLovPopupComponent],
-    imports: [CommonModule, FormsModule, AXDataGridModule, AXDataSourceModule, AXButtonModule, AXToolbarModule],
+    imports: [CommonModule, FormsModule, AXDataGridModule, AXDataSourceModule, AXButtonModule, AXToolbarModule,AXSelectBoxModule],
     exports: [AXLOVComponent, AXDataLovPopupComponent],
     providers: [],
     entryComponents: [AXDataLovPopupComponent]

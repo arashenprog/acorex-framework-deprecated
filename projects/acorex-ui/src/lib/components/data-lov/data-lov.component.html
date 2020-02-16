@@ -1,17 +1,21 @@
+<ax-select-box [showDropDownButton]="false" size="md" textField="title" valueField="id" groupField="category"
+    mode="multiple" (selectedItemsChange)="handleSelectChange($event)" [selectedValues]="selectedValues">
+    <ax-data-source [provideData]="handleDataReceived">
+    </ax-data-source>
+    <ax-button icon="fas fa-list-ul icon" type="light" (click)="handleButtonClick()"></ax-button>
+</ax-select-box>
 
 
-<div class="ax form-item {{size}}">
-    <div class="content">
-        <ng-content select="ng-container[header]">
-        </ng-content> 
-    </div>
-    <div class="ax buttons">
-        <ax-button icon="fas fa-list-ul icon" type="light" (click)="handleButtonClick($event)">
-        </ax-button>
-        <ng-content select="ax-button">
-        </ng-content>
-    </div>
-</div>
+
+
+
+
+
+
+
+
+
+
 
 <!-- <div class="ax-lov-box" [style.display]="mode=='hidden' ? 'none':'unset'">
     <div class="ax-field-set">

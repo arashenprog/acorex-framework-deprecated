@@ -40,12 +40,10 @@ export abstract class AXBaseTextComponent extends AXBaseComponent implements AXB
 
   ngAfterViewInit() {
     this.input.nativeElement.onkeyup = (e) => {
-      debugger;
       this.value = (e.target as any).value;
       this.onkey.emit(e);
     };
     this.input.nativeElement.onkeydown = (e) => {
-      debugger;
       this.onkey.emit(e);
     };
   }
@@ -118,6 +116,9 @@ export abstract class AXBaseDropdownComponent extends AXBaseComponent implements
 
   @Input()
   fitParent: boolean = true;
+
+  @Input()
+  showDropDownButton: boolean = true;
 
   abstract close();
   abstract open();

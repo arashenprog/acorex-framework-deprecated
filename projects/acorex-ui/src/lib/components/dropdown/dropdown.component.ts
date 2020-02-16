@@ -9,9 +9,8 @@ import { AXPopoverComponent } from '../popover';
     changeDetection: ChangeDetectionStrategy.OnPush,
     host: { style: 'display:flex;align-items:center;flex:1' }
 })
-export class AXDropdownComponent extends AXBaseDropdownComponent  {
-    
-    
+export class AXDropdownComponent extends AXBaseDropdownComponent {
+
     @ViewChild(AXPopoverComponent)
     popSelectBox: AXPopoverComponent;
 

@@ -4,7 +4,8 @@
         </ng-content>
     </div>
     <div class="ax buttons">
-        <ax-button icon="fas fa-angle-down icon" type="light" (click)="handleArrowClick($event)">
+        <ax-button *ngIf="showDropDownButton" icon="fas fa-angle-down icon" type="light"
+            (click)="handleArrowClick($event)">
         </ax-button>
         <ng-content select="ax-button">
         </ng-content>

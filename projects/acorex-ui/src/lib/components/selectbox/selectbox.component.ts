@@ -21,6 +21,9 @@ import { AXTextBoxComponent } from '../textbox';
 })
 export class AXSelectBoxComponent extends AXDataListComponent implements AXBaseSizableComponent, AXBaseInputComponent {
 
+    @Input()
+    showDropDownButton: boolean = true;
+    
     @ViewChild(AXTextBoxComponent)
     textbox: AXTextBoxComponent;
 

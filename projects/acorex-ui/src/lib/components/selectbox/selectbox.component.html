@@ -1,4 +1,4 @@
-<ax-drop-down [size]="size" #d>
+<ax-drop-down [size]="size" [showDropDownButton]="showDropDownButton" #d>
     <ng-container header>
         <div class="ax chips" *ngFor="let item of selectedItems">
             <span>
@@ -10,6 +10,7 @@
         </div>
         <ax-text-box [readonly]="readonly" [(value)]="text" (onkey)="handleKeyEvent($event)"></ax-text-box>
     </ng-container>
+    
     <ng-container panel>
         <div class="ax list-container">           
             <div style="max-height: 300px;overflow-y: auto;">
@@ -28,4 +29,6 @@
             </div>
         </div>
     </ng-container>
+    <ng-content select="ax-button">
+    </ng-content>
 </ax-drop-down>
