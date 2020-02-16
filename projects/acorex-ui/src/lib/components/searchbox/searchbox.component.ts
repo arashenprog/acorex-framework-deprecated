@@ -9,6 +9,8 @@ import { AXBaseTextComponent } from '../../core';
 })
 export class AXSearchBoxComponent extends AXBaseTextComponent {
 
+    
+
     constructor(protected cdr: ChangeDetectorRef) {
         super(cdr);
     }
@@ -31,5 +33,8 @@ export class AXSearchBoxComponent extends AXBaseTextComponent {
         }
 
         this.searchChangeObserver.next((e.target as any).value);
+    }
+
+    focus() {
     }
 }

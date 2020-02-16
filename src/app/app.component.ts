@@ -20,7 +20,9 @@ export class AppComponent {
   selectedValues: any[] = ['2', '4'];
 
   handleDataReceived = (e: AXDataSourceReadParams) => {
-    return Promise.resolve(this.dataSource)
+    return new Promise((resolve, reject) => {
+      resolve(this.dataSource);
+    });
   }
 
   handleSelectChange(e) {

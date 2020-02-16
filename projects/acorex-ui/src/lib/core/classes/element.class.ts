@@ -38,21 +38,6 @@ export interface AXBaseClickableComponent extends AXBaseInteractiveComponent {
 
 export abstract class AXBaseTextComponent extends AXBaseComponent implements AXBaseSizableComponent, AXBaseValueComponent<string> {
 
-  ngAfterViewInit() {
-    this.input.nativeElement.onkeyup = (e) => {
-      debugger;
-      this.value = (e.target as any).value;
-      this.onkey.emit(e);
-    };
-    this.input.nativeElement.onkeydown = (e) => {
-      debugger;
-      this.onkey.emit(e);
-    };
-  }
-
-  @ViewChild('input', { static: true })
-  input: ElementRef<HTMLInputElement>;
-
   @Input()
   disabled: boolean = false;
 
@@ -88,9 +73,9 @@ export abstract class AXBaseTextComponent extends AXBaseComponent implements AXB
     }
   }
 
-  focus() {
-    this.input.nativeElement.focus();
-  }
+  abstract focus();
+
+
 
 }
 

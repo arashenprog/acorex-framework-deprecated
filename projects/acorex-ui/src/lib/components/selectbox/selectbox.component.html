@@ -1,19 +1,22 @@
-<ax-drop-down [size]="size" #d>
+<ax-drop-down [size]="size" #d [disabled]="disabled">
     <ng-container header>
         <div class="ax chips" *ngFor="let item of selectedItems">
             <span>
                 {{item[textField]}}
             </span>
-            <span (click)="handleItemClick(item)">
+            <span (click)="handleItemClick(item)" *ngIf="readonly!=true && disabled!=true">
                 <i class="fas fa-times-circle close"></i>
             </span>
         </div>
-        <ax-text-box [readonly]="readonly" [(value)]="text" (onkey)="handleKeyEvent($event)"></ax-text-box>
+        <ax-text-box [readonly]="readonly" [disabled]="disabled" [(value)]="text" (onkey)="handleKeyEvent($event)">
+        </ax-text-box>
+        <ng-content select='ax-button'>
+        </ng-content>
     </ng-container>
     <ng-container panel>
-        <div class="ax list-container">           
+        <div class="ax list-container">
             <div style="max-height: 300px;overflow-y: auto;">
-                <ng-container *ngIf="getItems(); then thenTemplate; else elseTemplate"></ng-container>
+                <ng-container *ngIf="getItems().length>0; then thenTemplate; else elseTemplate"></ng-container>
                 <ng-template #thenTemplate>
                     <div class="list-item" [class.selected]="item.selected" *ngFor="let item of getItems()"
                         (click)="handleItemClick(item)">

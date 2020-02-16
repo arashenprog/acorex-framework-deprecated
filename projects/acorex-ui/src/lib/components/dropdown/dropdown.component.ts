@@ -9,9 +9,9 @@ import { AXPopoverComponent } from '../popover';
     changeDetection: ChangeDetectionStrategy.OnPush,
     host: { style: 'display:flex;align-items:center;flex:1' }
 })
-export class AXDropdownComponent extends AXBaseDropdownComponent  {
-    
-    
+export class AXDropdownComponent extends AXBaseDropdownComponent {
+
+
     @ViewChild(AXPopoverComponent)
     popSelectBox: AXPopoverComponent;
 
@@ -22,7 +22,9 @@ export class AXDropdownComponent extends AXBaseDropdownComponent  {
     ngOnInit(): void { }
 
     handleArrowClick(e: MouseEvent) {
-        this.popSelectBox.toggle();
+        if (this.disabled != true) {
+            this.popSelectBox.toggle();
+        }
     }
 
     close() {
