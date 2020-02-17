@@ -25,7 +25,7 @@ export class AXDatePickerComponent extends AXValidatableComponent {
     @Input() label: string = null;
 
     model: any = null;
-    _text: string = ''
+    _text: string = '';
     constructor() {
         super();
     }
@@ -56,7 +56,7 @@ export class AXDatePickerComponent extends AXValidatableComponent {
         if (!v.equal(this._value)) {
             this._value = v;
             this.valueChange.emit(v);
-            this._text = v.format('DD/MM/YYYY')
+            this._text = v.format('DD/MM/YYYY');
         }
     }
 

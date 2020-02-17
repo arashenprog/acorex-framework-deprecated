@@ -21,7 +21,7 @@ export class AXDropdownComponent extends AXBaseDropdownComponent {
     ngOnInit(): void { }
 
     handleArrowClick(e: MouseEvent) {
-        if (this.disabled != true) {
+        if (this.disabled !== true) {
             this.popSelectBox.toggle();
         }
     }
@@ -32,5 +32,9 @@ export class AXDropdownComponent extends AXBaseDropdownComponent {
 
     open() {
         this.popSelectBox.open();
+    }
+
+    focus() {
+
     }
 }
