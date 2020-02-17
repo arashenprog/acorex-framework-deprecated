@@ -9,14 +9,14 @@ import { AXDateTime } from '../../../core';
     <div class="ax-filter-section">
     <ax-selection-list [items]="items" mode="single" direction="vertical" (selectedItemsChange)="onSelectedChanged($event)">
     </ax-selection-list>
-</div>
-<div class="ax-filter-section-value" [hidden]="!showCustom">
-    <ax-date-picker label="From" [(value)]="fromDate" (valueChange)="dateChange($event)"></ax-date-picker>
-    <ax-date-picker label="To" [(value)]="toDate" (valueChange)="dateChange($event)"></ax-date-picker>
-</div>
-<div class="ax-filter-section-value" [hidden]="!showSpecific">
-    <ax-date-picker label="Date" [(value)]="fromDate" (valueChange)="dateChange($event)"></ax-date-picker>            
-</div>
+    </div>
+    <div class="ax-filter-section-value" [hidden]="!showCustom">
+        <ax-date-picker label="From" [(value)]="fromDate" (valueChange)="dateChange($event)"></ax-date-picker>
+        <ax-date-picker label="To" [(value)]="toDate" (valueChange)="dateChange($event)"></ax-date-picker>
+    </div>
+    <div class="ax-filter-section-value" [hidden]="!showSpecific">
+        <ax-date-picker label="Date" [(value)]="fromDate" (valueChange)="dateChange($event)"></ax-date-picker>            
+    </div>
     `,
     providers: [
         { provide: AXFilterColumnComponent, useExisting: AXFilterColumnDateComponent }

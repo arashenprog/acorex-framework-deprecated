@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, ViewEncapsulation, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { AXBaseTextComponent } from '../../core';
+import { AXValidationComponent } from '../validation';
 
 @Component({
     selector: 'ax-text-box',
@@ -9,6 +10,7 @@ import { AXBaseTextComponent } from '../../core';
     host: { style: 'flex:1' }
 })
 export class AXTextBoxComponent extends AXBaseTextComponent {
+
     constructor(protected cdr: ChangeDetectorRef) {
         super(cdr);
     }

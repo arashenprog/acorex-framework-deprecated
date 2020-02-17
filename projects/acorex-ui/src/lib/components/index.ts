@@ -10,6 +10,7 @@ export * from './dropdown';
 export * from './form-group';
 export * from './label';
 export * from './menu';
+export * from './panel-box';
 export * from './popover';
 export * from './popup';
 export * from './radiobutton';
