@@ -1,6 +1,6 @@
 import { Input, ContentChild, TemplateRef } from '@angular/core';
 import { AXGridCellParams } from '../datagrid.events';
-import {  AXDataGridCellTemplateComponent } from '../templates/cell-template.component';
+import { AXDataGridCellTemplateComponent } from '../templates/cell-template.component';
 
 
 export abstract class AXGridDataColumn {
@@ -25,7 +25,7 @@ export abstract class AXGridDataColumn {
     allowSorting: boolean = true;
 
     @Input()
-    allowFiltering: boolean = false;
+    allowFiltering: boolean = true;
 
     @Input()
     rowGroupIndex: number = -1;
@@ -33,10 +33,8 @@ export abstract class AXGridDataColumn {
     @Input()
     enableRowGroup: boolean = true;
 
-
     @Input()
     cellClass: (params: AXGridCellParams) => (string | string[]) | (string | string[]);
-
 
     @Input()
     sort: 'asc' | 'desc' | null = null;
