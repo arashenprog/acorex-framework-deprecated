@@ -21,5 +21,6 @@ export * from './textbox';
 export * from './toast';
 export * from './toolbar';
 export * from './validation';
+export * from './date-picker';
 
 
