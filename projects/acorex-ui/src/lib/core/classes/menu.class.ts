@@ -5,14 +5,14 @@ export class AXBaseMenuItem {
   text?: string;
   tooltip?: string;
   icon?: string;
-  visible = true;
-  disable = false;
+  visible ?= true;
+  disable ?= false;
   selected ?= false;
-  type = 'primary';
+  type ?= 'primary';
   groupName?: string;
   data?: any;
   style?: string;
-  orderIndex ?= 0;
+  orderIndex?= 0;
   endIcon?: string;
   startIcon?: string;
 }
@@ -24,9 +24,9 @@ export class AXMenuItem extends AXBaseMenuItem {
 }
 
 export class AXButtonItem extends AXBaseMenuItem {
-  dropdown ?= false;
-  submitBehavior ?= false;
-  cancelBehavior ?= false;
+  dropdown?= false;
+  submitBehavior?= false;
+  cancelBehavior?= false;
 }
 
 export class AXCheckItem {

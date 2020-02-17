@@ -1,10 +1,7 @@
 import { AXHtmlUtil } from '../utils';
 import { Input, Output, EventEmitter, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 
-
 export type AXElementSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-
-
 
 export abstract class AXBaseComponent {
   uid: string = AXHtmlUtil.getUID();
@@ -85,13 +82,8 @@ export abstract class AXBaseTextComponent extends AXBaseComponent implements AXB
       this.cdr.markForCheck();
     }
   }
-
   abstract focus();
-
-
-
 }
-
 
 export abstract class AXBaseButtonComponent extends AXBaseComponent implements AXBaseClickableComponent, AXBaseSizableComponent {
 
@@ -123,4 +115,3 @@ export abstract class AXBaseDropdownComponent extends AXBaseComponent implements
   abstract close();
   abstract open();
 }
-

@@ -23,6 +23,8 @@
     "no-output-on-prefix": false,
     "ban-types": false,
     "no-empty-interface": false,
-    no-host-metadata-property: false
+    "no-host-metadata-property": false,
+    "directive-class-suffix": false,
+    "max-line-length":false
   }
 }
