@@ -8,14 +8,15 @@ import {
   AXStorageService
 } from './services';
 import { AXScrollModule } from './utils';
+import { AXDateTimePipe } from './pipe';
 
 @NgModule({
-  declarations: [TranslatePipe],
+  declarations: [TranslatePipe, AXDateTimePipe],
   imports: [
     CommonModule,
     AXScrollModule
   ],
-  exports: [TranslatePipe, AXScrollModule],
+  exports: [TranslatePipe, AXScrollModule, AXDateTimePipe],
   providers: [
     EventService,
     AXComponentFactoryService,

@@ -200,16 +200,17 @@ export class AXFilterPanelComponent {
     applySaveFilter() {
         const f = this.currentFilter;
         if (f) {
-            this.tbxName.validate().then(c => {
-                if (c.result) {
-                    f.value = this.value;
-                    (f as any).isInEdit = false;
-                    (f as any).isNew = false;
-                    f.title = this.tbxName.value;
-                    this.toast.success('Filter saved successfully.');
-                    this.updateMenu();
-                }
-            });
+            // TODO
+            // this.tbxName.validate().then(c => {
+            //     if (c.result) {
+            //         f.value = this.value;
+            //         (f as any).isInEdit = false;
+            //         (f as any).isNew = false;
+            //         f.title = this.tbxName.value;
+            //         this.toast.success('Filter saved successfully.');
+            //         this.updateMenu();
+            //     }
+            // });
         }
     }
 

@@ -17,7 +17,7 @@ import { Observable } from 'rxjs';
         </select>
     </div>
     <div>
-        <ax-text-box placeholder="Type here" (textChange)="onTextChange($event)" [(text)]="value" *ngIf="operator!='is-not-empty' && operator!='is-empty'">
+        <ax-text-box placeholder="Type here" (textChange)="onTextChange($event)" [(value)]="value" *ngIf="operator!='is-not-empty' && operator!='is-empty'">
         </ax-text-box>
     </div>
 </div>
