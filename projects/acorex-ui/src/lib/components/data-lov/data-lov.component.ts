@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { AXBaseSizableComponent, AXBaseInputComponent, AXElementSize } from '../../core';
 import { AXPopupService } from '../popup';
+import { AXDataSourceReadParams } from '../data-source';
 @Component({
     selector: 'ax-lov',
     templateUrl: './data-lov.component.html',
@@ -10,6 +11,14 @@ export class AXLOVComponent implements AXBaseSizableComponent, AXBaseInputCompon
     constructor(private popup: AXPopupService) {
 
     }
+    selectedValues: any[] = ['2', '4'];
+
+    private dataSource: any[] = [
+        { id: '1', title: 'Same Title 1', number: 1000 },
+        { id: '2', title: 'Same Title 2', number: 2000 },
+        { id: '3', title: 'Same Title 3', number: 3000 },
+        { id: '4', title: 'Same Title 4', number: 4000 }
+    ];
 
     @Input()
     readonly: boolean;
@@ -23,7 +32,15 @@ export class AXLOVComponent implements AXBaseSizableComponent, AXBaseInputCompon
     focus(): void {
     }
 
-    handleButtonClick(e){
+    handleDataReceived = (e: AXDataSourceReadParams) => {
+        return Promise.resolve(this.dataSource);
+    }
 
+    handleButtonClick() {
+
+    }
+
+    handleSelectChange(e) {
+        console.log(e);
     }
 }
