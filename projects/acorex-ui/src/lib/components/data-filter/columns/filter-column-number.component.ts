@@ -1,5 +1,5 @@
-import { Component, ChangeDetectorRef} from '@angular/core';
-import { AXFilterCondition,AXFilterColumnComponent } from '../filter.class';
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { AXFilterCondition, AXFilterColumnComponent } from '../filter.class';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 import { Observable } from 'rxjs';
@@ -94,7 +94,7 @@ export class AXFilterColumnNumberComponent extends AXFilterColumnComponent {
             field: this.field,
             dataType: 'number',
             value: this.value
-        }
+        };
     }
 
 }

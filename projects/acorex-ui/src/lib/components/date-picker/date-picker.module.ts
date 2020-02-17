@@ -4,8 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { AXValidationModule } from '../validation/validation.module';
 import { AXDatePickerComponent } from './date-picker.component';
 import { AXDropdownModule } from '../dropdown';
+import { AXCalendarBoxModule } from '../calendar/calendar-box';
 @NgModule({
-  declarations: [AXDatePickerComponent ],
+  declarations: [AXDatePickerComponent],
   imports: [CommonModule, FormsModule, AXDropdownModule, AXCalendarBoxModule, AXValidationModule],
   exports: [AXDatePickerComponent],
   providers: []
