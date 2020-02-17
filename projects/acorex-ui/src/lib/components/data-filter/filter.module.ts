@@ -17,6 +17,7 @@ import { AXSelectionListModule } from '../selection-list';
 import { AXButtonModule } from '../button';
 import { AXToastModule } from '../toast';
 import { AXPanelBoxModule } from '../panel-box';
+import { AXDatePickerModule } from '../date-picker';
 
 
 

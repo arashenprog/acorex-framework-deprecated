@@ -1,13 +1,12 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AXValidationModule } from '../validation/validation.module';
-import { AXDropDownModule } from "../drop-down/drop-down.module";
-import { AXCalendarBoxModule } from "../../calendar/calendar-box/calendar-box.module"
-import { AXDatePickerComponent } from "./date-picker.component";
+import { AXDatePickerComponent } from './date-picker.component';
+import { AXDropdownModule } from '../dropdown';
 @NgModule({
   declarations: [AXDatePickerComponent ],
-  imports: [CommonModule, FormsModule, AXDropDownModule, AXCalendarBoxModule, AXValidationModule],
+  imports: [CommonModule, FormsModule, AXDropdownModule, AXCalendarBoxModule, AXValidationModule],
   exports: [AXDatePickerComponent],
   providers: []
 })
