@@ -1,11 +1,11 @@
 
-export interface IValidationRuleResult {
+export interface AXValidationRuleResult {
   message?: string;
   result: boolean;
   target?: any;
 }
 
-export interface IValidationResult {
+export interface AXValidationResult {
   result: boolean;
-  items?: IValidationRuleResult[];
+  items?: AXValidationRuleResult[];
 }

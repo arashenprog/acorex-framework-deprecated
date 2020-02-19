@@ -1,8 +1,7 @@
 import { Input, ViewChild, Output, EventEmitter, ViewEncapsulation, Component } from '@angular/core';
-import { IValidationRuleResult } from '../validation/validation.classs';
-import { AXValidatableComponent } from '../validation/validation.directive';
+import { AXValidationRuleResult } from '../validation/validation.classs';
 import { AXDropdownComponent } from '../dropdown';
-import { AXDateTime } from '../../core';
+import { AXDateTime, AXValidatableComponent } from '../../core';
 
 
 @Component({
@@ -15,8 +14,8 @@ import { AXDateTime } from '../../core';
     ]
 })
 export class AXDatePickerComponent extends AXValidatableComponent {
-
-
+    readonly: boolean;
+    disabled: boolean;
     @ViewChild('dropdown', { static: true })
     dropdown: AXDropdownComponent;
     @Input() placeholder: string = '';
@@ -61,26 +60,27 @@ export class AXDatePickerComponent extends AXValidatableComponent {
     }
 
 
-    validate(): Promise<IValidationRuleResult> {
+    // validate(): Promise<AXValidationRuleResult> {
 
-        return new Promise<IValidationRuleResult>(resolve => {
-            if (!this.validator) {
-                resolve({ result: true });
-            } else {
-                // this.validator.validate(this.model).then(r => {
-                //     r.target = this;
-                //     if (r.result) {
-                //         this.errorText = null;
-                //     } else {
-                //         this.errorText = r.message;
-                //     }
-                //     resolve(r);
-                // });
+    //     return new Promise<AXValidationRuleResult>(resolve => {
+    //         if (!this.validator) {
+    //             resolve({ result: true });
+    //         } else {
+    //             // this.validator.validate(this.model).then(r => {
+    //             //     r.target = this;
+    //             //     if (r.result) {
+    //             //         this.errorText = null;
+    //             //     } else {
+    //             //         this.errorText = r.message;
+    //             //     }
+    //             //     resolve(r);
+    //             // });
 
-                resolve()
-            }
-        });
-    }
+    //             resolve()
+    //         }
+    //     });
+    // }
+
     onDateChange(date: AXDateTime) {
         this.dropdown.close();
     }

@@ -1,31 +1,61 @@
-import { Component, ContentChildren, QueryList, Input } from '@angular/core';
+import { Component, ContentChildren, QueryList, Input, Output, EventEmitter } from '@angular/core';
 import { AXValidationRule } from './validation-rule.widget';
-import { IValidationRuleResult } from './validation.classs';
+import { AXValidationRuleResult } from './validation.classs';
 
-@Component({
-  selector: 'ax-validation',
-  template: '<ng-content></ng-content>'
-})
-export class AXValidationComponent {
-  @ContentChildren(AXValidationRule) items: QueryList<AXValidationRule>;
+export class AXValidation {
 
-  @Input()
-  validateOn: 'blur' | 'change' | 'submit' = null;
+  items: AXValidationRule[] = [];
+  validateOn: 'blur' | 'change' | 'submit' = 'submit';
 
-  validate(value: any): Promise<IValidationRuleResult> {
-    return new Promise<IValidationRuleResult>(resolve => {
+  validate(value: any): Promise<AXValidationRuleResult> {
+    return new Promise<AXValidationRuleResult>(resolve => {
       Promise.all(
         this.items.map(c => {
           return c.validate(value);
         })
       ).then(d => {
         const error = d.find(c => c.result === false);
-        if (error){
+        if (error) {
           resolve(error);
-        }else{
+        } else {
           resolve({ result: true });
         }
       });
     });
+  }
+}
+
+
+@Component({
+  selector: 'ax-validation',
+  template: '<ng-content></ng-content>',
+  providers: [{ provide: AXValidation, useExisting: AXValidationComponent }]
+})
+export class AXValidationComponent extends AXValidation {
+
+  @ContentChildren(AXValidationRule) contentItems: QueryList<AXValidationRule>;
+
+
+  @Output()
+  rulesChange: EventEmitter<AXValidationRule[]> = new EventEmitter<AXValidationRule[]>();
+
+  private _rules: AXValidationRule[];
+
+  @Input()
+  public get rules(): AXValidationRule[] {
+    return this._rules;
+  }
+  public set rules(v: AXValidationRule[]) {
+    this._rules = v;
+    this.rulesChange.emit(v);
+  }
+
+  @Input()
+  validateOn: 'blur' | 'change' | 'submit' = null;
+
+  ngAfterContentInit() {
+    if (this.rules.length === 0) {
+      this.rules.push(...this.contentItems.toArray());
+    }
   }
 }
